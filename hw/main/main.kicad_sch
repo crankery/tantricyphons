@@ -5527,7 +5527,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "lama:Logo"
+		(symbol "tantricyphons:Logo"
 			(exclude_from_sim no)
 			(in_bom no)
 			(on_board yes)
@@ -8304,7 +8304,7 @@
 				)
 			)
 		)
-		(property "Footprint" "lama:L_TDK_VLS6045EX_VLS6045AF"
+		(property "Footprint" "tantricyphons:L_TDK_VLS6045EX_VLS6045AF"
 			(at 67.31 143.51 0)
 			(hide yes)
 			(show_name no)
@@ -8386,7 +8386,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "lama:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
+		(property "Footprint" "tantricyphons:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
 			(at 151.13 49.53 0)
 			(hide yes)
 			(show_name no)
@@ -8548,7 +8548,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "lama:MountingHole_3.2mm_M3_DIN965_Pad"
+		(property "Footprint" "tantricyphons:MountingHole_3.2mm_M3_DIN965_Pad"
 			(at 114.3 173.99 0)
 			(hide yes)
 			(show_name no)
@@ -8626,7 +8626,7 @@
 				)
 			)
 		)
-		(property "Footprint" "lama:C_Disc_D3.0mm_W1.6mm_P2.50mm"
+		(property "Footprint" "tantricyphons:C_Disc_D3.0mm_W1.6mm_P2.50mm"
 			(at 125.73 128.27 0)
 			(hide yes)
 			(show_name no)
@@ -8786,7 +8786,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "lama:C_Disc_D3.0mm_W1.6mm_P2.50mm"
+		(property "Footprint" "tantricyphons:C_Disc_D3.0mm_W1.6mm_P2.50mm"
 			(at 72.39 180.34 0)
 			(hide yes)
 			(show_name no)
@@ -8868,7 +8868,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "lama:TO-92_Inline"
+		(property "Footprint" "tantricyphons:TO-92_Inline"
 			(at 97.79 81.28 0)
 			(hide yes)
 			(show_name no)
@@ -8952,7 +8952,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "lama:CP_Radial_D6.3mm_P2.50mm"
+		(property "Footprint" "tantricyphons:CP_Radial_D6.3mm_P2.50mm"
 			(at 83.82 180.34 0)
 			(hide yes)
 			(show_name no)
@@ -9032,7 +9032,7 @@
 				)
 			)
 		)
-		(property "Footprint" "lama:IDC-Header_2x05_P2.54mm_Horizontal"
+		(property "Footprint" "tantricyphons:IDC-Header_2x05_P2.54mm_Horizontal"
 			(at 29.21 182.88 0)
 			(hide yes)
 			(show_name no)
@@ -9294,7 +9294,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "lama:C_Disc_D3.0mm_W1.6mm_P2.50mm"
+		(property "Footprint" "tantricyphons:C_Disc_D3.0mm_W1.6mm_P2.50mm"
 			(at 184.15 147.32 0)
 			(hide yes)
 			(show_name no)
@@ -9452,7 +9452,7 @@
 				)
 			)
 		)
-		(property "Footprint" "lama:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
+		(property "Footprint" "tantricyphons:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
 			(at 153.67 38.1 0)
 			(hide yes)
 			(show_name no)
@@ -9612,7 +9612,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "lama:C_Disc_D3.0mm_W1.6mm_P2.50mm"
+		(property "Footprint" "tantricyphons:C_Disc_D3.0mm_W1.6mm_P2.50mm"
 			(at 163.83 55.88 0)
 			(hide yes)
 			(show_name no)
@@ -9692,7 +9692,7 @@
 				)
 			)
 		)
-		(property "Footprint" "lama:DIP-8_W7.62mm"
+		(property "Footprint" "tantricyphons:DIP-8_W7.62mm"
 			(at 223.52 138.43 0)
 			(hide yes)
 			(show_name no)
@@ -9790,7 +9790,7 @@
 				)
 			)
 		)
-		(property "Footprint" "lama:TO-92_Inline"
+		(property "Footprint" "tantricyphons:TO-92_Inline"
 			(at 140.97 67.31 0)
 			(hide yes)
 			(show_name no)
@@ -10340,7 +10340,7 @@
 				)
 			)
 		)
-		(property "Footprint" "lama:DIP-8_W7.62mm"
+		(property "Footprint" "tantricyphons:DIP-8_W7.62mm"
 			(at 142.24 147.32 0)
 			(hide yes)
 			(show_name no)
@@ -10438,7 +10438,7 @@
 				)
 			)
 		)
-		(property "Footprint" "lama:SOT-23-6"
+		(property "Footprint" "tantricyphons:SOT-23-6"
 			(at 44.45 156.21 0)
 			(hide yes)
 			(show_name no)
@@ -10844,7 +10844,7 @@
 				)
 			)
 		)
-		(property "Footprint" "lama:PinSocket_1x06_P2.54mm_Vertical"
+		(property "Footprint" "tantricyphons:PinSocket_1x06_P2.54mm_Vertical"
 			(at 210.82 43.18 0)
 			(hide yes)
 			(show_name no)
@@ -11016,7 +11016,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "lama:C_Disc_D3.0mm_W1.6mm_P2.50mm"
+		(property "Footprint" "tantricyphons:C_Disc_D3.0mm_W1.6mm_P2.50mm"
 			(at 72.39 185.42 0)
 			(hide yes)
 			(show_name no)
@@ -11100,7 +11100,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "lama:MountingHole_3.2mm_M3_DIN965_Pad"
+		(property "Footprint" "tantricyphons:MountingHole_3.2mm_M3_DIN965_Pad"
 			(at 102.87 173.99 0)
 			(hide yes)
 			(show_name no)
@@ -11257,7 +11257,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "lama:C_Disc_D3.0mm_W1.6mm_P2.50mm"
+		(property "Footprint" "tantricyphons:C_Disc_D3.0mm_W1.6mm_P2.50mm"
 			(at 130.81 57.15 0)
 			(hide yes)
 			(show_name no)
@@ -11495,7 +11495,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "lama:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
+		(property "Footprint" "tantricyphons:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
 			(at 26.67 140.97 0)
 			(hide yes)
 			(show_name no)
@@ -11575,7 +11575,7 @@
 				)
 			)
 		)
-		(property "Footprint" "lama:PinSocket_2x07_P2.54mm_Vertical"
+		(property "Footprint" "tantricyphons:PinSocket_2x07_P2.54mm_Vertical"
 			(at 256.54 44.45 0)
 			(hide yes)
 			(show_name no)
@@ -12206,7 +12206,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lama:Logo")
+		(lib_id "tantricyphons:Logo")
 		(at 134.62 187.96 0)
 		(unit 1)
 		(body_style 1)
@@ -12239,7 +12239,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "lama:crankery_small"
+		(property "Footprint" "tantricyphons:crankery_small"
 			(at 134.62 187.96 0)
 			(hide yes)
 			(show_name no)
@@ -12438,7 +12438,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lama:Logo")
+		(lib_id "tantricyphons:Logo")
 		(at 134.62 193.04 0)
 		(unit 1)
 		(body_style 1)
@@ -12471,7 +12471,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "lama:monk"
+		(property "Footprint" "tantricyphons:monk"
 			(at 134.62 193.04 0)
 			(hide yes)
 			(show_name no)
@@ -12545,7 +12545,7 @@
 				)
 			)
 		)
-		(property "Footprint" "lama:PinSocket_2x04_P2.54mm_Vertical"
+		(property "Footprint" "tantricyphons:PinSocket_2x04_P2.54mm_Vertical"
 			(at 208.28 80.01 0)
 			(hide yes)
 			(show_name no)
@@ -12840,7 +12840,7 @@
 				)
 			)
 		)
-		(property "Footprint" "lama:JST_PH_S8B-PH-K_1x08_P2.00mm_Horizontal"
+		(property "Footprint" "tantricyphons:JST_PH_S8B-PH-K_1x08_P2.00mm_Horizontal"
 			(at 189.23 45.72 0)
 			(hide yes)
 			(show_name no)
@@ -12940,7 +12940,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "lama:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+		(property "Footprint" "tantricyphons:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
 			(at 71.12 151.13 0)
 			(hide yes)
 			(show_name no)
@@ -13024,7 +13024,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "lama:MountingHole_3.2mm_M3_DIN965_Pad"
+		(property "Footprint" "tantricyphons:MountingHole_3.2mm_M3_DIN965_Pad"
 			(at 106.68 173.99 0)
 			(hide yes)
 			(show_name no)
@@ -13101,7 +13101,7 @@
 				)
 			)
 		)
-		(property "Footprint" "lama:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
+		(property "Footprint" "tantricyphons:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
 			(at 59.69 138.43 0)
 			(hide yes)
 			(show_name no)
@@ -13181,7 +13181,7 @@
 				)
 			)
 		)
-		(property "Footprint" "lama:DIP-8_W7.62mm"
+		(property "Footprint" "tantricyphons:DIP-8_W7.62mm"
 			(at 140.97 38.1 0)
 			(hide yes)
 			(show_name no)
@@ -13279,7 +13279,7 @@
 				)
 			)
 		)
-		(property "Footprint" "lama:D_SMA"
+		(property "Footprint" "tantricyphons:D_SMA"
 			(at 62.23 173.355 0)
 			(hide yes)
 			(show_name no)
@@ -13437,7 +13437,7 @@
 				)
 			)
 		)
-		(property "Footprint" "lama:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
+		(property "Footprint" "tantricyphons:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
 			(at 147.32 144.78 0)
 			(hide yes)
 			(show_name no)
@@ -13751,7 +13751,7 @@
 				)
 			)
 		)
-		(property "Footprint" "lama:D_SMA"
+		(property "Footprint" "tantricyphons:D_SMA"
 			(at 62.23 192.405 0)
 			(hide yes)
 			(show_name no)
@@ -13909,7 +13909,7 @@
 				)
 			)
 		)
-		(property "Footprint" "lama:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
+		(property "Footprint" "tantricyphons:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
 			(at 52.07 177.8 0)
 			(hide yes)
 			(show_name no)
@@ -14069,7 +14069,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "lama:C_Disc_D3.0mm_W1.6mm_P2.50mm"
+		(property "Footprint" "tantricyphons:C_Disc_D3.0mm_W1.6mm_P2.50mm"
 			(at 184.15 137.16 0)
 			(hide yes)
 			(show_name no)
@@ -14151,7 +14151,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "lama:CP_Radial_D6.3mm_P2.50mm"
+		(property "Footprint" "tantricyphons:CP_Radial_D6.3mm_P2.50mm"
 			(at 83.82 185.42 0)
 			(hide yes)
 			(show_name no)
@@ -14233,7 +14233,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "lama:DIP-16_W7.62mm"
+		(property "Footprint" "tantricyphons:DIP-16_W7.62mm"
 			(at 156.21 78.74 0)
 			(hide yes)
 			(show_name no)
@@ -14435,7 +14435,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "lama:PinSocket_1x02_P2.54mm_Vertical"
+		(property "Footprint" "tantricyphons:PinSocket_1x02_P2.54mm_Vertical"
 			(at 212.09 100.33 0)
 			(hide yes)
 			(show_name no)
@@ -14595,7 +14595,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "lama:DIP-8_W7.62mm"
+		(property "Footprint" "tantricyphons:DIP-8_W7.62mm"
 			(at 194.31 142.24 0)
 			(hide yes)
 			(show_name no)
@@ -14693,7 +14693,7 @@
 				)
 			)
 		)
-		(property "Footprint" "lama:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
+		(property "Footprint" "tantricyphons:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
 			(at 52.07 187.96 0)
 			(hide yes)
 			(show_name no)
@@ -14852,7 +14852,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "lama:C_1210_3225Metric_Pad1.33x2.70mm_HandSolder"
+		(property "Footprint" "tantricyphons:C_1210_3225Metric_Pad1.33x2.70mm_HandSolder"
 			(at 76.2 146.05 0)
 			(hide yes)
 			(show_name no)
@@ -14934,7 +14934,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "lama:C_Disc_D3.0mm_W1.6mm_P2.50mm"
+		(property "Footprint" "tantricyphons:C_Disc_D3.0mm_W1.6mm_P2.50mm"
 			(at 114.3 81.28 0)
 			(hide yes)
 			(show_name no)
@@ -15018,7 +15018,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "lama:MountingHole_3.2mm_M3_DIN965_Pad"
+		(property "Footprint" "tantricyphons:MountingHole_3.2mm_M3_DIN965_Pad"
 			(at 110.49 173.99 0)
 			(hide yes)
 			(show_name no)
@@ -15097,7 +15097,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "lama:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+		(property "Footprint" "tantricyphons:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
 			(at 71.12 146.05 0)
 			(hide yes)
 			(show_name no)
@@ -15255,7 +15255,7 @@
 				)
 			)
 		)
-		(property "Footprint" "lama:SolderJumper-2_P1.3mm_Bridged_RoundedPad1.0x1.5mm"
+		(property "Footprint" "tantricyphons:SolderJumper-2_P1.3mm_Bridged_RoundedPad1.0x1.5mm"
 			(at 52.07 170.18 0)
 			(hide yes)
 			(show_name no)
@@ -15335,7 +15335,7 @@
 				)
 			)
 		)
-		(property "Footprint" "lama:SolderJumper-2_P1.3mm_Bridged_RoundedPad1.0x1.5mm"
+		(property "Footprint" "tantricyphons:SolderJumper-2_P1.3mm_Bridged_RoundedPad1.0x1.5mm"
 			(at 52.07 195.58 0)
 			(hide yes)
 			(show_name no)

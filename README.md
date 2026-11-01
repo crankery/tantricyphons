@@ -1,6 +1,6 @@
-# Lamarama
+# Tantricyphons
 
-Lamarama is a Raspberry Pi Pico 2 based, monophonic vocal synthesizer module inspired by AudioNerdz's **Delay Lama**. It combines a formant-wave-function voice with MIDI, a dedicated pitch/gate/vowel interface, four assignable pots, four assignable CV inputs, and a small LCD showing the animated monk and setup menus.
+Tantricyphons is a Raspberry Pi Pico 2 based, monophonic vocal synthesizer module inspired by AudioNerdz's **Delay Lama**. It combines a formant-wave-function voice with MIDI, a dedicated pitch/gate/vowel interface, four assignable pots, four assignable CV inputs, and a small LCD showing the animated monk and setup menus.
 
 The Pico runs the user interface and control acquisition on one core and audio synthesis on the other. PIO handles the DAC serial timing, external ADC transactions, and rotary encoder. DMA moves audio samples and LCD pixels without requiring the CPU to transmit individual bits or bytes.
 
@@ -104,7 +104,7 @@ These are **GPIO numbers**. The physical Pico header pin is included to avoid co
 | GP28 | 34 | VOWEL_POT / ADC2 | Pico ADC |
 | GP25 | Onboard LED, not a header pin | Audio-loop heartbeat | Core 1 GPIO |
 
-The active pin definitions live in the corresponding peripheral headers. Historical generic SPI/I2C definitions in `lama.h` are template leftovers, not the current peripheral pin map.
+The active pin definitions live in the corresponding peripheral headers. Historical generic SPI/I2C definitions in `tantricyphons.h` are template leftovers, not the current peripheral pin map.
 
 ## Firmware architecture
 
@@ -272,7 +272,7 @@ Saving deliberately permits a brief audio/control interruption. The SDK locks ou
 
 The CMake project imports an installed SDK and defaults to board `pico2`. The firmware includes its own packed artwork, so the MonkSynth submodule is useful for reference but is not a build dependency. Repository submodule configuration currently uses an SSH URL.
 
-Run these commands from **`src/lama`**:
+Run these commands from **`src/tantricyphons`**:
 
 ```sh
 export PICO_SDK_PATH=/path/to/pico-sdk
@@ -280,23 +280,25 @@ cmake -S . -B build -G Ninja -DPICO_BOARD=pico2 -DCMAKE_BUILD_TYPE=Release
 cmake --build build -j4
 ```
 
+After renaming or moving the firmware directory, recreate `build/`; existing CMake caches contain absolute source paths.
+
 Ensure the Arm compiler and build tools are available on PATH, or provide `PICO_TOOLCHAIN_PATH` / `CMAKE_MAKE_PROGRAM`. The VS Code extension's installed tool paths are already configured under `.vscode`.
 
 | Build setting | Default | Purpose |
 | --- | --- | --- |
 | `PICO_BOARD` | `pico2` | RP2350, non-wireless board and direct onboard LED |
-| `LAMA_SAMPLE_RATE` | `44100` | Nominal audio rate; integer 8000–48000 |
-| `LAMA_USB_CONSOLE` | `ON` | USB CDC console and SDK USB reset support |
-| `LAMA_AUDIO_DEBUG` | `ON` | Once-per-second probe UART summaries |
-| `SAMPLE_BUFFER_SIZE` | `256` in `lama.h` | Audio block size; rebuild required |
+| `TANTRICYPHONS_SAMPLE_RATE` | `44100` | Nominal audio rate; integer 8000–48000 |
+| `TANTRICYPHONS_USB_CONSOLE` | `ON` | USB CDC console and SDK USB reset support |
+| `TANTRICYPHONS_AUDIO_DEBUG` | `ON` | Once-per-second probe UART summaries |
+| `SAMPLE_BUFFER_SIZE` | `256` in `tantricyphons.h` | Audio block size; rebuild required |
 
-44.1 kHz is the primary target. Alternative rates can be selected with `-DLAMA_SAMPLE_RATE=32000` or `22050`; preserve the matching ELF when debugging a different build. Source stepping may be easier with a Debug build, but remeasure timing at the optimization level used for playback.
+44.1 kHz is the primary target. Alternative rates can be selected with `-DTANTRICYPHONS_SAMPLE_RATE=32000` or `22050`; preserve the matching ELF when debugging a different build. Source stepping may be easier with a Debug build, but remeasure timing at the optimization level used for playback.
 
-Outputs are `build/lama.uf2` for BOOTSEL upload, `build/lama.elf` for source debugging, `build/lama.bin` for the flash payload, and the linker map for size inspection. UF2 packaging is roughly twice the payload size. ELF debug information is not all programmed into flash.
+Outputs are `build/tantricyphons.uf2` for BOOTSEL upload, `build/tantricyphons.elf` for source debugging, `build/tantricyphons.bin` for the flash payload, and the linker map for size inspection. UF2 packaging is roughly twice the payload size. ELF debug information is not all programmed into flash.
 
 ### Upload without a probe
 
-Hold **BOOTSEL** while connecting USB. Release it when the **RP2350** drive appears, then copy `build/lama.uf2` to it. The board restarts into firmware. Once this USB-enabled firmware is running, the SDK reset interface also supports subsequent picotool/Run Project uploads. Hardware BOOTSEL remains the recovery path.
+Hold **BOOTSEL** while connecting USB. Release it when the **RP2350** drive appears, then copy `build/tantricyphons.uf2` to it. The board restarts into firmware. Once this USB-enabled firmware is running, the SDK reset interface also supports subsequent picotool/Run Project uploads. Hardware BOOTSEL remains the recovery path.
 
 ### Source debugging and probe logs
 
@@ -308,7 +310,7 @@ Breakpoints and flash saves disturb audio timing. Use the running console, count
 
 ## USB console
 
-Connect with a live serial terminal such as minicom, or a serial monitor configured to send messages with **LF or CRLF**. **115200, 8N1, no flow control** is conventional; USB CDC is not paced by the selected UART baud. The console echoes input, so disable local echo. It greets with `lama USB console. Type help.`
+Connect with a live serial terminal such as minicom, or a serial monitor configured to send messages with **LF or CRLF**. **115200, 8N1, no flow control** is conventional; USB CDC is not paced by the selected UART baud. The console echoes input, so disable local echo. It greets with `tantricyphons USB console. Type help.`
 
 ```text
 help
@@ -375,7 +377,7 @@ The optimization's host comparison produced **356,580 byte-identical samples** a
 ## Source-code map
 
 ```text
-src/lama/
+src/tantricyphons/
 ├── src/                 # C implementations
 │   ├── app/             # Startup and main loop
 │   ├── audio/           # Voice, rendering and ownership
@@ -397,68 +399,68 @@ Includes name their subsystem, for example `#include "audio/voice.h"` and
 `#include "hardware/dac.h"`. CMake lists implementation files explicitly;
 only `include/` is needed on the project's header search path.
 
-Paths below are relative to the firmware directory, `src/lama`. C implementations are grouped under `src/`, matching headers under `include/`, and PIO programs under `pio/`. Generated PIO headers remain in the build directory.
+Paths below are relative to the firmware directory, `src/tantricyphons`. C implementations are grouped under `src/`, matching headers under `include/`, and PIO programs under `pio/`. Generated PIO headers remain in the build directory.
 
 | Files | Responsibility |
 | --- | --- |
-| [`lama.c`](src/lama/src/app/lama.c), [`lama.h`](src/lama/include/app/lama.h) | Startup, main-loop order, ADC callback integration, block/rate defaults |
-| [`soundCore.c`](src/lama/src/audio/soundCore.c), [`soundCore.h`](src/lama/include/audio/soundCore.h) | Audio core, floating-point scratch buffer, gain smoothing, DAC packing, heartbeat and timing snapshots/reset requests |
-| [`voice.c`](src/lama/src/audio/voice.c), [`voice.h`](src/lama/include/audio/voice.h) | MonkSynth-derived FOF DSP, tables, envelope, pitch utilities and exact-input caches |
-| [`voice_control.c`](src/lama/src/audio/voice_control.c), [`voice_control.h`](src/lama/include/audio/voice_control.h) | Audio-side note stack, MIDI/CV priority, cached panel values and controller handback |
-| [`messenger.c`](src/lama/src/messaging/messenger.c), [`messenger.h`](src/lama/include/messaging/messenger.h) | Bounded multicore event queue and source tagging |
-| [`dac.c`](src/lama/src/hardware/dac.c), [`dac.h`](src/lama/include/hardware/dac.h), [`dac.pio`](src/lama/pio/dac.pio) | Buffer ownership, DMA completion/restart, DAC wire timing and stall counters |
-| [`input.c`](src/lama/src/controls/input.c), [`input.h`](src/lama/include/controls/input.h), [`mcp3208.pio`](src/lama/pio/mcp3208.pio) | Nonblocking eleven-channel scans, snapshots, calibration application and raw update callback |
-| [`cv_input.c`](src/lama/src/controls/cv_input.c), [`cv_input.h`](src/lama/include/controls/cv_input.h), [`cv_pitch.c`](src/lama/src/controls/cv_pitch.c) | Dedicated pitch/vowel ADC dispatch, gate polling/status heartbeat and volts-to-note conversion |
-| [`vowel_controls.c`](src/lama/src/controls/vowel_controls.c), [`vowel_controls.h`](src/lama/include/controls/vowel_controls.h) | Dedicated pot/CV combination, thresholds and update rate limit |
-| [`routing.c`](src/lama/src/controls/routing.c), [`routing.h`](src/lama/include/controls/routing.h) | Eight menu assignments, ranges and generic input-change suppression |
-| [`calibration.c`](src/lama/src/controls/calibration.c), [`calibration.h`](src/lama/include/controls/calibration.h) | Per-converter voltage fit, normalized conversion and reference-sample capture |
-| [`midi.c`](src/lama/src/midi/midi.c), [`midi.h`](src/lama/include/midi/midi.h), [`midi_uart.c`](src/lama/src/midi/midi_uart.c) | Byte-stream parser, supported message mapping, UART1 polling/error recovery and traffic counters |
-| [`display.c`](src/lama/src/display/display.c), [`display.h`](src/lama/include/display/display.h) | ST7789 startup state machine, display-buffer ownership, LCD windows and SPI DMA |
-| [`monk.c`](src/lama/src/display/monk.c), [`monk.h`](src/lama/include/display/monk.h) | Frame choice, idle animation and incremental 4bpp-to-RGB565 expansion |
-| [`menu.c`](src/lama/src/display/menu.c), [`menu.h`](src/lama/include/display/menu.h), [`menu_font.h`](src/lama/include/display/menu_font.h) | Setup navigation/edit/cancel states, calibration/save flows and row rendering |
-| [`ui_controls.c`](src/lama/src/controls/ui_controls.c), [`ui_controls.h`](src/lama/include/controls/ui_controls.h), [`encoder.pio`](src/lama/pio/encoder.pio) | Encoder PIO configuration, bounded snapshot polling and OK/Back debounce |
-| [`encoder_steps.c`](src/lama/src/controls/encoder_steps.c), [`encoder_steps.h`](src/lama/include/controls/encoder_steps.h) | Modular edge-count differences, partial steps and detent conversion |
-| [`settings.c`](src/lama/src/settings/settings.c), [`settings.h`](src/lama/include/settings/settings.h) | Load/save policy, dirty tracking, defaults and deferred save requests |
-| [`settings_format.c`](src/lama/src/settings/settings_format.c), [`settings_format.h`](src/lama/include/settings/settings_format.h) | Versioned record encoding, validation, CRC and migration |
-| [`settings_flash.c`](src/lama/src/settings/settings_flash.c), [`settings_storage.h`](src/lama/include/settings/settings_storage.h) | Physical flash adapter, reserved sectors, RAM program buffer and safe multicore execution |
-| [`usb_console.c`](src/lama/src/diagnostics/usb_console.c), [`usb_console.h`](src/lama/include/diagnostics/usb_console.h) | USB terminal transport, line editing, replies and command execution on core 0 |
-| [`console_command.c`](src/lama/src/diagnostics/console_command.c), [`console_command.h`](src/lama/include/diagnostics/console_command.h) | Hardware-independent parsing, command vocabulary and input validation |
-| [`audio_debug.c`](src/lama/src/diagnostics/audio_debug.c), [`audio_debug.h`](src/lama/include/diagnostics/audio_debug.h) | Bounded UART0 diagnostic output |
-| [`assets/`](src/lama/assets) | Packed monk frames, palette, format notes and font license |
-| [`tools/embed_monk.py`](src/lama/tools/embed_monk.py) | Build-time packed asset embedding into generated C |
-| [`tools/check_flash_size.py`](src/lama/tools/check_flash_size.py) | Reject an image overlapping settings sectors |
-| [`tools/format_code.py`](src/lama/tools/format_code.py), [`.clang-format`](src/lama/.clang-format) | Microsoft/Allman formatting and blank lines after completed blocks |
-| [`CMakeLists.txt`](src/lama/CMakeLists.txt), [`pico_sdk_import.cmake`](src/lama/pico_sdk_import.cmake) | Sources, SDK/peripheral libraries, PIO headers, options and output generation |
-| [`tests/`](src/lama/tests) | Host logic tests, flash-memory model, PIO simulators and waveform comparison fixture |
-| [`notes.md`](src/lama/notes.md) | More detailed implementation and bring-up notes |
+| [`tantricyphons.c`](src/tantricyphons/src/app/tantricyphons.c), [`tantricyphons.h`](src/tantricyphons/include/app/tantricyphons.h) | Startup, main-loop order, ADC callback integration, block/rate defaults |
+| [`soundCore.c`](src/tantricyphons/src/audio/soundCore.c), [`soundCore.h`](src/tantricyphons/include/audio/soundCore.h) | Audio core, floating-point scratch buffer, gain smoothing, DAC packing, heartbeat and timing snapshots/reset requests |
+| [`voice.c`](src/tantricyphons/src/audio/voice.c), [`voice.h`](src/tantricyphons/include/audio/voice.h) | MonkSynth-derived FOF DSP, tables, envelope, pitch utilities and exact-input caches |
+| [`voice_control.c`](src/tantricyphons/src/audio/voice_control.c), [`voice_control.h`](src/tantricyphons/include/audio/voice_control.h) | Audio-side note stack, MIDI/CV priority, cached panel values and controller handback |
+| [`messenger.c`](src/tantricyphons/src/messaging/messenger.c), [`messenger.h`](src/tantricyphons/include/messaging/messenger.h) | Bounded multicore event queue and source tagging |
+| [`dac.c`](src/tantricyphons/src/hardware/dac.c), [`dac.h`](src/tantricyphons/include/hardware/dac.h), [`dac.pio`](src/tantricyphons/pio/dac.pio) | Buffer ownership, DMA completion/restart, DAC wire timing and stall counters |
+| [`input.c`](src/tantricyphons/src/controls/input.c), [`input.h`](src/tantricyphons/include/controls/input.h), [`mcp3208.pio`](src/tantricyphons/pio/mcp3208.pio) | Nonblocking eleven-channel scans, snapshots, calibration application and raw update callback |
+| [`cv_input.c`](src/tantricyphons/src/controls/cv_input.c), [`cv_input.h`](src/tantricyphons/include/controls/cv_input.h), [`cv_pitch.c`](src/tantricyphons/src/controls/cv_pitch.c) | Dedicated pitch/vowel ADC dispatch, gate polling/status heartbeat and volts-to-note conversion |
+| [`vowel_controls.c`](src/tantricyphons/src/controls/vowel_controls.c), [`vowel_controls.h`](src/tantricyphons/include/controls/vowel_controls.h) | Dedicated pot/CV combination, thresholds and update rate limit |
+| [`routing.c`](src/tantricyphons/src/controls/routing.c), [`routing.h`](src/tantricyphons/include/controls/routing.h) | Eight menu assignments, ranges and generic input-change suppression |
+| [`calibration.c`](src/tantricyphons/src/controls/calibration.c), [`calibration.h`](src/tantricyphons/include/controls/calibration.h) | Per-converter voltage fit, normalized conversion and reference-sample capture |
+| [`midi.c`](src/tantricyphons/src/midi/midi.c), [`midi.h`](src/tantricyphons/include/midi/midi.h), [`midi_uart.c`](src/tantricyphons/src/midi/midi_uart.c) | Byte-stream parser, supported message mapping, UART1 polling/error recovery and traffic counters |
+| [`display.c`](src/tantricyphons/src/display/display.c), [`display.h`](src/tantricyphons/include/display/display.h) | ST7789 startup state machine, display-buffer ownership, LCD windows and SPI DMA |
+| [`monk.c`](src/tantricyphons/src/display/monk.c), [`monk.h`](src/tantricyphons/include/display/monk.h) | Frame choice, idle animation and incremental 4bpp-to-RGB565 expansion |
+| [`menu.c`](src/tantricyphons/src/display/menu.c), [`menu.h`](src/tantricyphons/include/display/menu.h), [`menu_font.h`](src/tantricyphons/include/display/menu_font.h) | Setup navigation/edit/cancel states, calibration/save flows and row rendering |
+| [`ui_controls.c`](src/tantricyphons/src/controls/ui_controls.c), [`ui_controls.h`](src/tantricyphons/include/controls/ui_controls.h), [`encoder.pio`](src/tantricyphons/pio/encoder.pio) | Encoder PIO configuration, bounded snapshot polling and OK/Back debounce |
+| [`encoder_steps.c`](src/tantricyphons/src/controls/encoder_steps.c), [`encoder_steps.h`](src/tantricyphons/include/controls/encoder_steps.h) | Modular edge-count differences, partial steps and detent conversion |
+| [`settings.c`](src/tantricyphons/src/settings/settings.c), [`settings.h`](src/tantricyphons/include/settings/settings.h) | Load/save policy, dirty tracking, defaults and deferred save requests |
+| [`settings_format.c`](src/tantricyphons/src/settings/settings_format.c), [`settings_format.h`](src/tantricyphons/include/settings/settings_format.h) | Versioned record encoding, validation, CRC and migration |
+| [`settings_flash.c`](src/tantricyphons/src/settings/settings_flash.c), [`settings_storage.h`](src/tantricyphons/include/settings/settings_storage.h) | Physical flash adapter, reserved sectors, RAM program buffer and safe multicore execution |
+| [`usb_console.c`](src/tantricyphons/src/diagnostics/usb_console.c), [`usb_console.h`](src/tantricyphons/include/diagnostics/usb_console.h) | USB terminal transport, line editing, replies and command execution on core 0 |
+| [`console_command.c`](src/tantricyphons/src/diagnostics/console_command.c), [`console_command.h`](src/tantricyphons/include/diagnostics/console_command.h) | Hardware-independent parsing, command vocabulary and input validation |
+| [`audio_debug.c`](src/tantricyphons/src/diagnostics/audio_debug.c), [`audio_debug.h`](src/tantricyphons/include/diagnostics/audio_debug.h) | Bounded UART0 diagnostic output |
+| [`assets/`](src/tantricyphons/assets) | Packed monk frames, palette, format notes and font license |
+| [`tools/embed_monk.py`](src/tantricyphons/tools/embed_monk.py) | Build-time packed asset embedding into generated C |
+| [`tools/check_flash_size.py`](src/tantricyphons/tools/check_flash_size.py) | Reject an image overlapping settings sectors |
+| [`tools/format_code.py`](src/tantricyphons/tools/format_code.py), [`.clang-format`](src/tantricyphons/.clang-format) | Microsoft/Allman formatting and blank lines after completed blocks |
+| [`CMakeLists.txt`](src/tantricyphons/CMakeLists.txt), [`pico_sdk_import.cmake`](src/tantricyphons/pico_sdk_import.cmake) | Sources, SDK/peripheral libraries, PIO headers, options and output generation |
+| [`tests/`](src/tantricyphons/tests) | Host logic tests, flash-memory model, PIO simulators and waveform comparison fixture |
+| [`notes.md`](src/tantricyphons/notes.md) | More detailed implementation and bring-up notes |
 
 `build/monk_assets.c` and the `.pio.h` files are generated. `build/` can be recreated; source assets and tools are required. Older experiments and extraction/prototype code elsewhere in `src` are not current firmware build inputs.
 
 ## Tests and bring-up
 
-Host tests exercise behavior without connected converters or a probe. For example, from `src/lama` with a host C compiler:
+Host tests exercise behavior without connected converters or a probe. For example, from `src/tantricyphons` with a host C compiler:
 
 ```sh
 cc -std=c11 -Wall -Wextra -Werror -fsanitize=address,undefined -Iinclude \
-    src/diagnostics/console_command.c tests/test_console_command.c -lm -o /tmp/lama-test-console
-/tmp/lama-test-console
+    src/diagnostics/console_command.c tests/test_console_command.c -lm -o /tmp/tantricyphons-test-console
+/tmp/tantricyphons-test-console
 
 cc -std=c11 -Wall -Wextra -Werror -fsanitize=address,undefined -Iinclude \
     src/controls/calibration.c src/settings/settings_format.c src/settings/settings.c src/controls/routing.c src/audio/voice.c \
-    tests/settings_memory.c tests/test_settings.c -lm -o /tmp/lama-test-settings
-/tmp/lama-test-settings
+    tests/settings_memory.c tests/test_settings.c -lm -o /tmp/tantricyphons-test-settings
+/tmp/tantricyphons-test-settings
 
 cc -std=c11 -Wall -Wextra -Werror -fsanitize=address,undefined -Iinclude \
     src/display/menu.c src/controls/routing.c src/controls/calibration.c src/settings/settings_format.c src/settings/settings.c src/audio/voice.c \
-    tests/settings_memory.c tests/test_menu.c -lm -o /tmp/lama-test-menu
-/tmp/lama-test-menu
+    tests/settings_memory.c tests/test_menu.c -lm -o /tmp/tantricyphons-test-menu
+/tmp/tantricyphons-test-menu
 
 python3 tests/test_dac_pio.py
 python3 tests/test_mcp3208_pio.py
 python3 tests/test_encoder_pio.py
 ```
 
-Other tests cover MIDI parsing, voice ownership/handback, dedicated vowel controls, cache invalidation, monk decoding/animation and encoder detent/wrap logic. `settings_memory.c` simulates flash failures, CRC corruption and interrupted writes. `render_voice_samples.c` is a differential waveform fixture. More commands and test details are in [`notes.md`](src/lama/notes.md).
+Other tests cover MIDI parsing, voice ownership/handback, dedicated vowel controls, cache invalidation, monk decoding/animation and encoder detent/wrap logic. `settings_memory.c` simulates flash failures, CRC corruption and interrupted writes. `render_voice_samples.c` is a differential waveform fixture. More commands and test details are in [`notes.md`](src/tantricyphons/notes.md).
 
 A practical board bring-up sequence is:
 
@@ -474,9 +476,9 @@ Known limits include sequential rather than simultaneous ADC sampling, polling-b
 
 ## Credits and licensing
 
-- **Dave Hamilton:** Lamarama hardware and module project; see the repository [MIT license](LICENSE).
+- **Dave Hamilton:** Tantricyphons hardware and module project; see the repository [MIT license](LICENSE).
 - **Jonathan Taylor / [MonkSynth](https://github.com/JonET/monksynth):** original C voice engine. `voice.c` and `voice.h` retain the copyright, full MIT notice and upstream attribution, with local adaptations described in their headers.
 - **Xavier Rodet / IRCAM:** formant-wave-function synthesis technique, as credited by MonkSynth.
 - **AudioNerdz / Delay Lama (2002):** original instrument inspiration and the source of the monk artwork used by the prototype. Artwork provenance is documented in the assets and extraction tools; a separate artwork license is not included here.
-- **st7789_mpy / Russ Hughes and contributors:** earlier display prototype and reused bitmap font; its notice is preserved in [`assets/font-LICENSE.txt`](src/lama/assets/font-LICENSE.txt).
+- **st7789_mpy / Russ Hughes and contributors:** earlier display prototype and reused bitmap font; its notice is preserved in [`assets/font-LICENSE.txt`](src/tantricyphons/assets/font-LICENSE.txt).
 - **Raspberry Pi Pico SDK and examples:** peripheral support and reference approaches, including cumulative PIO encoder counting. SDK components retain their own licenses.

@@ -5,7 +5,7 @@
 	(uuid "50679b2c-6993-4e62-8b0b-655ede54208e")
 	(paper "A4")
 	(lib_symbols
-		(symbol "lama:Logo"
+		(symbol "tantricyphons:Logo"
 			(exclude_from_sim no)
 			(in_bom no)
 			(on_board yes)
@@ -103,7 +103,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lama:Logo")
+		(lib_id "tantricyphons:Logo")
 		(at 44.45 82.55 0)
 		(unit 1)
 		(body_style 1)
@@ -136,7 +136,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "lama:jackhole"
+		(property "Footprint" "tantricyphons:jackhole"
 			(at 44.45 82.55 0)
 			(hide yes)
 			(show_name no)
@@ -179,7 +179,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lama:Logo")
+		(lib_id "tantricyphons:Logo")
 		(at 44.45 41.91 0)
 		(unit 1)
 		(body_style 1)
@@ -212,7 +212,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "lama:jackhole"
+		(property "Footprint" "tantricyphons:jackhole"
 			(at 44.45 41.91 0)
 			(hide yes)
 			(show_name no)
@@ -255,7 +255,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lama:Logo")
+		(lib_id "tantricyphons:Logo")
 		(at 26.67 41.91 0)
 		(unit 1)
 		(body_style 1)
@@ -288,7 +288,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "lama:1900h"
+		(property "Footprint" "tantricyphons:1900h"
 			(at 26.67 41.91 0)
 			(hide yes)
 			(show_name no)
@@ -331,7 +331,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lama:Logo")
+		(lib_id "tantricyphons:Logo")
 		(at 44.45 62.23 0)
 		(unit 1)
 		(body_style 1)
@@ -364,7 +364,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "lama:jackhole"
+		(property "Footprint" "tantricyphons:jackhole"
 			(at 44.45 62.23 0)
 			(hide yes)
 			(show_name no)
@@ -407,7 +407,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lama:Logo")
+		(lib_id "tantricyphons:Logo")
 		(at 26.67 57.15 0)
 		(unit 1)
 		(body_style 1)
@@ -440,7 +440,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "lama:1900h"
+		(property "Footprint" "tantricyphons:1900h"
 			(at 26.67 57.15 0)
 			(hide yes)
 			(show_name no)
@@ -483,7 +483,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lama:Logo")
+		(lib_id "tantricyphons:Logo")
 		(at 44.45 52.07 0)
 		(unit 1)
 		(body_style 1)
@@ -516,7 +516,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "lama:jackhole"
+		(property "Footprint" "tantricyphons:jackhole"
 			(at 44.45 52.07 0)
 			(hide yes)
 			(show_name no)
@@ -559,7 +559,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lama:Logo")
+		(lib_id "tantricyphons:Logo")
 		(at 50.8 33.02 0)
 		(unit 1)
 		(body_style 1)
@@ -592,7 +592,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "lama:display"
+		(property "Footprint" "tantricyphons:display"
 			(at 50.8 33.02 0)
 			(hide yes)
 			(show_name no)
@@ -635,7 +635,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lama:Logo")
+		(lib_id "tantricyphons:Logo")
 		(at 26.67 46.99 0)
 		(unit 1)
 		(body_style 1)
@@ -668,7 +668,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "lama:1900h"
+		(property "Footprint" "tantricyphons:1900h"
 			(at 26.67 46.99 0)
 			(hide yes)
 			(show_name no)
@@ -711,7 +711,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lama:Logo")
+		(lib_id "tantricyphons:Logo")
 		(at 44.45 57.15 0)
 		(unit 1)
 		(body_style 1)
@@ -744,7 +744,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "lama:jackhole"
+		(property "Footprint" "tantricyphons:jackhole"
 			(at 44.45 57.15 0)
 			(hide yes)
 			(show_name no)
@@ -787,7 +787,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lama:Logo")
+		(lib_id "tantricyphons:Logo")
 		(at 44.45 72.39 0)
 		(unit 1)
 		(body_style 1)
@@ -820,7 +820,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "lama:jackhole"
+		(property "Footprint" "tantricyphons:jackhole"
 			(at 44.45 72.39 0)
 			(hide yes)
 			(show_name no)
@@ -863,7 +863,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lama:Logo")
+		(lib_id "tantricyphons:Logo")
 		(at 26.67 62.23 0)
 		(unit 1)
 		(body_style 1)
@@ -896,7 +896,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "lama:1900h"
+		(property "Footprint" "tantricyphons:1900h"
 			(at 26.67 62.23 0)
 			(hide yes)
 			(show_name no)
@@ -939,7 +939,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lama:Logo")
+		(lib_id "tantricyphons:Logo")
 		(at 44.45 46.99 0)
 		(unit 1)
 		(body_style 1)
@@ -972,7 +972,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "lama:jackhole"
+		(property "Footprint" "tantricyphons:jackhole"
 			(at 44.45 46.99 0)
 			(hide yes)
 			(show_name no)
@@ -1015,7 +1015,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lama:Logo")
+		(lib_id "tantricyphons:Logo")
 		(at 44.45 67.31 0)
 		(unit 1)
 		(body_style 1)
@@ -1048,7 +1048,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "lama:jackhole"
+		(property "Footprint" "tantricyphons:jackhole"
 			(at 44.45 67.31 0)
 			(hide yes)
 			(show_name no)
@@ -1091,7 +1091,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lama:Logo")
+		(lib_id "tantricyphons:Logo")
 		(at 26.67 52.07 0)
 		(unit 1)
 		(body_style 1)
@@ -1124,7 +1124,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "lama:1900h"
+		(property "Footprint" "tantricyphons:1900h"
 			(at 26.67 52.07 0)
 			(hide yes)
 			(show_name no)
@@ -1167,7 +1167,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lama:Logo")
+		(lib_id "tantricyphons:Logo")
 		(at 44.45 77.47 0)
 		(unit 1)
 		(body_style 1)
@@ -1200,7 +1200,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "lama:jackhole"
+		(property "Footprint" "tantricyphons:jackhole"
 			(at 44.45 77.47 0)
 			(hide yes)
 			(show_name no)
@@ -1243,7 +1243,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lama:Logo")
+		(lib_id "tantricyphons:Logo")
 		(at 26.67 69.85 0)
 		(unit 1)
 		(body_style 1)
@@ -1276,7 +1276,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "lama:encoderknob"
+		(property "Footprint" "tantricyphons:encoderknob"
 			(at 26.67 69.85 0)
 			(hide yes)
 			(show_name no)

@@ -88,7 +88,7 @@
 			(outputdirectory "./fp.dxf")
 		)
 	)
-	(footprint "lama:encoderknob"
+	(footprint "tantricyphons:encoderknob"
 		(layer "F.Cu")
 		(uuid "06634377-7b1a-4674-b9e4-c9f97c8e72f3")
 		(at 70.675 95.033333)
@@ -158,7 +158,7 @@
 			(uuid "f536524c-0d0c-44e9-8b94-1e562444c782")
 		)
 		(embedded_fonts no)
-		(model "/Users/dave/Source/crankery/lamarama/hw/3D/encoderknob.step"
+		(model "${KIPRJMOD}/../3D/encoderknob.step"
 			(hide yes)
 			(offset
 				(xyz 0 0 0.1)
@@ -170,7 +170,7 @@
 				(xyz -0 -0 -0)
 			)
 		)
-		(model "/Users/dave/Source/crankery/lamarama/hw/3D/Dome Knob Allparts.STEP"
+		(model "${KIPRJMOD}/../3D/Dome Knob Allparts.STEP"
 			(offset
 				(xyz 0 0 1)
 			)
@@ -182,7 +182,7 @@
 			)
 		)
 	)
-	(footprint "lama:jackhole"
+	(footprint "tantricyphons:jackhole"
 		(layer "F.Cu")
 		(uuid "0c577a22-f873-4e67-9d74-f8ffa016229a")
 		(at 101.886 125.25)
@@ -258,7 +258,7 @@
 			(uuid "002bd5ac-ca02-4994-9485-fe1f2ac9ea76")
 		)
 		(embedded_fonts no)
-		(model "/Users/dave/Source/crankery/lamarama/hw/3D/KNUT-PJ398SM.stp"
+		(model "${KIPRJMOD}/../3D/KNUT-PJ398SM.stp"
 			(offset
 				(xyz 0 0 -12)
 			)
@@ -270,7 +270,7 @@
 			)
 		)
 	)
-	(footprint "lama:jackhole"
+	(footprint "tantricyphons:jackhole"
 		(layer "F.Cu")
 		(uuid "10913ab5-4f0d-4d7d-80f8-8402992721de")
 		(at 81.062 125.25)
@@ -346,7 +346,7 @@
 			(uuid "6fd547c2-89d0-43a7-a3a5-38ae2968a9b6")
 		)
 		(embedded_fonts no)
-		(model "/Users/dave/Source/crankery/lamarama/hw/3D/KNUT-PJ398SM.stp"
+		(model "${KIPRJMOD}/../3D/KNUT-PJ398SM.stp"
 			(offset
 				(xyz 0 0 -12)
 			)
@@ -358,7 +358,7 @@
 			)
 		)
 	)
-	(footprint "lama:1900h"
+	(footprint "tantricyphons:1900h"
 		(layer "F.Cu")
 		(uuid "35bd2127-f120-46cd-ac4a-69f5892c3832")
 		(at 81.062 111.75)
@@ -434,7 +434,7 @@
 			(uuid "7c368860-236f-48d0-9ca4-661d1b04a932")
 		)
 		(embedded_fonts no)
-		(model "/Users/dave/Source/crankery/lamarama/hw/3D/1900h-bk-T-D.stp"
+		(model "${KIPRJMOD}/../3D/1900h-bk-T-D.stp"
 			(offset
 				(xyz 0 0 -12.9)
 			)
@@ -446,7 +446,7 @@
 			)
 		)
 	)
-	(footprint "lama:jackhole"
+	(footprint "tantricyphons:jackhole"
 		(layer "F.Cu")
 		(uuid "381c4c11-5396-4460-87d7-de3e06b93947")
 		(at 60.238 125.25)
@@ -522,7 +522,7 @@
 			(uuid "cef9a52b-dfaa-4a10-91c4-ec01af1c3c41")
 		)
 		(embedded_fonts no)
-		(model "/Users/dave/Source/crankery/lamarama/hw/3D/KNUT-PJ398SM.stp"
+		(model "${KIPRJMOD}/../3D/KNUT-PJ398SM.stp"
 			(offset
 				(xyz 0 0 -12)
 			)
@@ -534,7 +534,7 @@
 			)
 		)
 	)
-	(footprint "lama:1900h"
+	(footprint "tantricyphons:1900h"
 		(layer "F.Cu")
 		(uuid "3f67a998-9269-4525-a857-31ce15d3b07d")
 		(at 39.414 81.533333)
@@ -610,7 +610,7 @@
 			(uuid "f5049a54-32b0-40dd-9c28-b13f3fd4f9c2")
 		)
 		(embedded_fonts no)
-		(model "/Users/dave/Source/crankery/lamarama/hw/3D/1900h-bk-T-D.stp"
+		(model "${KIPRJMOD}/../3D/1900h-bk-T-D.stp"
 			(offset
 				(xyz 0 0 -12.9)
 			)
@@ -622,7 +622,7 @@
 			)
 		)
 	)
-	(footprint "lama:display"
+	(footprint "tantricyphons:display"
 		(layer "F.Cu")
 		(uuid "4250f1c8-6709-4ca4-8020-d13e43edcb7a")
 		(at 52.125 24.25)
@@ -809,7 +809,7 @@
 			(uuid "baaa32e1-0b73-4921-8b33-b598bc258bc3")
 		)
 		(embedded_fonts no)
-		(model "/Users/dave/Source/crankery/lamarama/hw/3D/display.step"
+		(model "${KIPRJMOD}/../3D/display.step"
 			(offset
 				(xyz 0 0 -4.55)
 			)
@@ -820,7 +820,7 @@
 				(xyz 180 -0 -0)
 			)
 		)
-		(model "/Users/dave/Source/crankery/lamarama/hw/3D/din912-m2.5x6.STEP"
+		(model "${KIPRJMOD}/../3D/din912-m2.5x6.STEP"
 			(offset
 				(xyz 4.475 -2 2.51)
 			)
@@ -831,7 +831,7 @@
 				(xyz -0 -90 -0)
 			)
 		)
-		(model "/Users/dave/Source/crankery/lamarama/hw/3D/din912-m2.5x6.STEP"
+		(model "${KIPRJMOD}/../3D/din912-m2.5x6.STEP"
 			(offset
 				(xyz 32.475 -2 2.51)
 			)
@@ -842,7 +842,7 @@
 				(xyz -0 -90 -0)
 			)
 		)
-		(model "/Users/dave/Source/crankery/lamarama/hw/3D/din912-m2.5x6.STEP"
+		(model "${KIPRJMOD}/../3D/din912-m2.5x6.STEP"
 			(offset
 				(xyz 4.475 -60 2.51)
 			)
@@ -853,7 +853,7 @@
 				(xyz -0 -90 -0)
 			)
 		)
-		(model "/Users/dave/Source/crankery/lamarama/hw/3D/din912-m2.5x6.STEP"
+		(model "${KIPRJMOD}/../3D/din912-m2.5x6.STEP"
 			(offset
 				(xyz 32.475 -60 2.51)
 			)
@@ -865,7 +865,7 @@
 			)
 		)
 	)
-	(footprint "lama:1900h"
+	(footprint "tantricyphons:1900h"
 		(layer "F.Cu")
 		(uuid "52cd6fea-5469-4617-a8c5-0fccb3e948d4")
 		(at 60.238 111.75)
@@ -941,7 +941,7 @@
 			(uuid "194037a1-26db-4a60-b0a0-5b8e5993f8a2")
 		)
 		(embedded_fonts no)
-		(model "/Users/dave/Source/crankery/lamarama/hw/3D/1900h-bk-T-D.stp"
+		(model "${KIPRJMOD}/../3D/1900h-bk-T-D.stp"
 			(offset
 				(xyz 0 0 -12.9)
 			)
@@ -953,7 +953,7 @@
 			)
 		)
 	)
-	(footprint "lama:jackhole"
+	(footprint "tantricyphons:jackhole"
 		(layer "F.Cu")
 		(uuid "5eb9a338-2540-4910-b40b-7f5941ddaada")
 		(at 39.414 95.033333)
@@ -1029,7 +1029,7 @@
 			(uuid "b32df012-3c45-4ffb-95d0-ce9e7ee592cb")
 		)
 		(embedded_fonts no)
-		(model "/Users/dave/Source/crankery/lamarama/hw/3D/KNUT-PJ398SM.stp"
+		(model "${KIPRJMOD}/../3D/KNUT-PJ398SM.stp"
 			(offset
 				(xyz 0 0 -12)
 			)
@@ -1041,7 +1041,7 @@
 			)
 		)
 	)
-	(footprint "lama:jackhole"
+	(footprint "tantricyphons:jackhole"
 		(layer "F.Cu")
 		(uuid "74691d0e-976d-417a-bc0f-5370af7cbe97")
 		(at 101.886 64.816667)
@@ -1117,7 +1117,7 @@
 			(uuid "10c748b4-82fc-4c48-953a-fef00c5807ee")
 		)
 		(embedded_fonts no)
-		(model "/Users/dave/Source/crankery/lamarama/hw/3D/KNUT-PJ398SM.stp"
+		(model "${KIPRJMOD}/../3D/KNUT-PJ398SM.stp"
 			(offset
 				(xyz 0 0 -12)
 			)
@@ -1129,7 +1129,7 @@
 			)
 		)
 	)
-	(footprint "lama:1900h"
+	(footprint "tantricyphons:1900h"
 		(layer "F.Cu")
 		(uuid "94e3ca5e-4b6f-4abb-9aac-0417d2800991")
 		(at 39.414 111.75)
@@ -1205,7 +1205,7 @@
 			(uuid "664692ba-4823-432d-9368-42d51dccea4b")
 		)
 		(embedded_fonts no)
-		(model "/Users/dave/Source/crankery/lamarama/hw/3D/1900h-bk-T-D.stp"
+		(model "${KIPRJMOD}/../3D/1900h-bk-T-D.stp"
 			(offset
 				(xyz 0 0 -12.9)
 			)
@@ -1217,7 +1217,7 @@
 			)
 		)
 	)
-	(footprint "lama:jackhole"
+	(footprint "tantricyphons:jackhole"
 		(layer "F.Cu")
 		(uuid "a849e67a-47d6-4a22-b169-2a996ad0b8b3")
 		(at 39.414 64.816667)
@@ -1293,7 +1293,7 @@
 			(uuid "9ae669d2-6236-4dd4-855c-123fbf3b29ea")
 		)
 		(embedded_fonts no)
-		(model "/Users/dave/Source/crankery/lamarama/hw/3D/KNUT-PJ398SM.stp"
+		(model "${KIPRJMOD}/../3D/KNUT-PJ398SM.stp"
 			(offset
 				(xyz 0 0 -12)
 			)
@@ -1305,7 +1305,7 @@
 			)
 		)
 	)
-	(footprint "lama:jackhole"
+	(footprint "tantricyphons:jackhole"
 		(layer "F.Cu")
 		(uuid "b562905a-6cbf-41bf-8e29-7058f3762c0e")
 		(at 101.886 34.6)
@@ -1381,7 +1381,7 @@
 			(uuid "fbe01952-8bc1-486b-8829-16970f153fed")
 		)
 		(embedded_fonts no)
-		(model "/Users/dave/Source/crankery/lamarama/hw/3D/KNUT-PJ398SM.stp"
+		(model "${KIPRJMOD}/../3D/KNUT-PJ398SM.stp"
 			(offset
 				(xyz 0 0 -12)
 			)
@@ -1393,7 +1393,7 @@
 			)
 		)
 	)
-	(footprint "lama:jackhole"
+	(footprint "tantricyphons:jackhole"
 		(layer "F.Cu")
 		(uuid "d2f24060-e462-4fb4-a159-98347aa444a9")
 		(at 39.414 125.25)
@@ -1469,7 +1469,7 @@
 			(uuid "96bdbbb2-2c57-4b4a-b677-868f37fe9935")
 		)
 		(embedded_fonts no)
-		(model "/Users/dave/Source/crankery/lamarama/hw/3D/KNUT-PJ398SM.stp"
+		(model "${KIPRJMOD}/../3D/KNUT-PJ398SM.stp"
 			(offset
 				(xyz 0 0 -12)
 			)
@@ -1481,7 +1481,7 @@
 			)
 		)
 	)
-	(footprint "lama:jackhole"
+	(footprint "tantricyphons:jackhole"
 		(layer "F.Cu")
 		(uuid "d3b981bb-ddeb-45ca-a60d-33d9c923704f")
 		(at 39.414 34.6)
@@ -1557,7 +1557,7 @@
 			(uuid "85ebaca6-3af7-470a-af26-ba89b38a59a5")
 		)
 		(embedded_fonts no)
-		(model "/Users/dave/Source/crankery/lamarama/hw/3D/KNUT-PJ398SM.stp"
+		(model "${KIPRJMOD}/../3D/KNUT-PJ398SM.stp"
 			(offset
 				(xyz 0 0 -12)
 			)
@@ -1569,7 +1569,7 @@
 			)
 		)
 	)
-	(footprint "lama:1900h"
+	(footprint "tantricyphons:1900h"
 		(layer "F.Cu")
 		(uuid "f6146bb9-b7ad-4801-8298-ccdd5032d87f")
 		(at 101.886 111.75)
@@ -1645,7 +1645,7 @@
 			(uuid "ab39c992-76f3-4147-85f7-e370ee9828ec")
 		)
 		(embedded_fonts no)
-		(model "/Users/dave/Source/crankery/lamarama/hw/3D/1900h-bk-T-D.stp"
+		(model "${KIPRJMOD}/../3D/1900h-bk-T-D.stp"
 			(offset
 				(xyz 0 0 -12.9)
 			)

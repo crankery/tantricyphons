@@ -89,7 +89,7 @@
 			(outputdirectory "../gerbers/control/")
 		)
 	)
-	(footprint "lama:MountingHole_3.2mm_M3_DIN965_Pad"
+	(footprint "tantricyphons:MountingHole_3.2mm_M3_DIN965_Pad"
 		(layer "F.Cu")
 		(uuid "02e8bec9-0fc9-4848-aae7-fd09d60ea23a")
 		(at 113.25 126.95)
@@ -212,7 +212,7 @@
 		)
 		(embedded_fonts no)
 	)
-	(footprint "lama:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
+	(footprint "tantricyphons:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "05c8a2d9-b0e2-4212-9358-8573d9def070")
 		(at 62.23 65.08)
@@ -403,7 +403,7 @@
 			)
 		)
 	)
-	(footprint "lama:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
+	(footprint "tantricyphons:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "07204244-027c-4d46-a32f-2dcdc35583aa")
 		(at 30.272 113.02 90)
@@ -594,7 +594,7 @@
 			)
 		)
 	)
-	(footprint "lama:Jack_PJ398SM"
+	(footprint "tantricyphons:Jack_PJ398SM"
 		(layer "F.Cu")
 		(uuid "0d0b6e6d-9808-4e6e-8752-fa303fdd36b6")
 		(at 101.886 125.25 -90)
@@ -916,7 +916,7 @@
 			(uuid "1ab4bee2-0abf-4c58-96b4-3150ceb27e4a")
 		)
 		(embedded_fonts no)
-		(model "/Users/dave/Source/crankery/lamarama/hw/3D/WQP-PJ398SM.step"
+		(model "${KIPRJMOD}/../3D/WQP-PJ398SM.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -927,7 +927,7 @@
 				(xyz -0 -0 -0)
 			)
 		)
-		(model "/Users/dave/Source/crankery/lamarama/hw/3D/PJ398SM.STEP"
+		(model "${KIPRJMOD}/../3D/PJ398SM.STEP"
 			(hide yes)
 			(offset
 				(xyz 0 0 0)
@@ -940,7 +940,7 @@
 			)
 		)
 	)
-	(footprint "lama:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
+	(footprint "tantricyphons:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "0eb0c73b-0d3a-44fd-b5b5-02dbe5de40bc")
 		(at 30.272 121.91 90)
@@ -1131,7 +1131,7 @@
 			)
 		)
 	)
-	(footprint "lama:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
+	(footprint "tantricyphons:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "0f6ebea7-8397-4f92-8afb-1da0f8133d27")
 		(at 92.744 121.91 90)
@@ -1322,7 +1322,7 @@
 			)
 		)
 	)
-	(footprint "lama:D_DO-35_SOD27_P7.62mm_Horizontal"
+	(footprint "tantricyphons:D_DO-35_SOD27_P7.62mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "0ffb7c28-66d2-4383-93c6-4e5feacd4d8f")
 		(at 60.96 47.3)
@@ -1616,7 +1616,7 @@
 			)
 		)
 	)
-	(footprint "lama:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
+	(footprint "tantricyphons:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "10d0fc72-f724-47b5-af1b-954f7ba1f3fd")
 		(at 48.556 113.02 90)
@@ -1807,7 +1807,7 @@
 			)
 		)
 	)
-	(footprint "lama:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
+	(footprint "tantricyphons:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "13076d8e-b864-443b-a158-bb94a20f217d")
 		(at 92.744 113.02 90)
@@ -1998,7 +1998,7 @@
 			)
 		)
 	)
-	(footprint "lama:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
+	(footprint "tantricyphons:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "1cc0b068-6a78-4261-ba45-5e2b07864408")
 		(at 29.21 45.72)
@@ -2189,7 +2189,7 @@
 			)
 		)
 	)
-	(footprint "lama:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
+	(footprint "tantricyphons:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "209fd619-4cc7-4cce-b0ed-540d15615cf4")
 		(at 51.096 113.02 90)
@@ -2380,7 +2380,7 @@
 			)
 		)
 	)
-	(footprint "lama:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
+	(footprint "tantricyphons:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "259a800e-f8a6-4879-894b-2847cc4fdb38")
 		(at 49.53 45.72)
@@ -2571,7 +2571,7 @@
 			)
 		)
 	)
-	(footprint "lama:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
+	(footprint "tantricyphons:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "27c7c4a7-1fc8-4b35-b2cc-41579b32671c")
 		(at 62.23 57.46)
@@ -2762,7 +2762,7 @@
 			)
 		)
 	)
-	(footprint "lama:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
+	(footprint "tantricyphons:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "2820ed58-d18b-4023-80a5-4388c108e95f")
 		(at 98.201 45.68 180)
@@ -2953,7 +2953,7 @@
 			)
 		)
 	)
-	(footprint "lama:D_DO-35_SOD27_P7.62mm_Horizontal"
+	(footprint "tantricyphons:D_DO-35_SOD27_P7.62mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "298f6169-75ab-4585-b9d5-0307f3c259b1")
 		(at 60.96 70.16)
@@ -3247,7 +3247,7 @@
 			)
 		)
 	)
-	(footprint "lama:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
+	(footprint "tantricyphons:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "29d60684-b75f-4172-bbdf-0135ed7eceb8")
 		(at 53.414 32.06 -90)
@@ -3438,7 +3438,7 @@
 			)
 		)
 	)
-	(footprint "lama:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
+	(footprint "tantricyphons:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "2a3dabd0-103a-4991-bd24-5a9101ec4c28")
 		(at 111.028 113.02 90)
@@ -3629,7 +3629,7 @@
 			)
 		)
 	)
-	(footprint "lama:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
+	(footprint "tantricyphons:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "2a87f567-ed23-43b2-bab7-fc7b4a4b7916")
 		(at 90.204 121.91 90)
@@ -3820,7 +3820,7 @@
 			)
 		)
 	)
-	(footprint "lama:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
+	(footprint "tantricyphons:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "2dd1bdbd-dc01-41c3-9f23-2b9c134f8b4e")
 		(at 62.23 34.6)
@@ -4011,7 +4011,7 @@
 			)
 		)
 	)
-	(footprint "lama:crankery_small"
+	(footprint "tantricyphons:crankery_small"
 		(layer "F.Cu")
 		(uuid "36638103-2a24-47c8-8423-132a8092bdae")
 		(at 111.146301 95.111557)
@@ -7263,7 +7263,7 @@
 		)
 		(embedded_fonts no)
 	)
-	(footprint "lama:D_DO-35_SOD27_P7.62mm_Horizontal"
+	(footprint "tantricyphons:D_DO-35_SOD27_P7.62mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "3b243002-9417-46c7-a650-716399ffd1c6")
 		(at 68.58 67.62 180)
@@ -7557,7 +7557,7 @@
 			)
 		)
 	)
-	(footprint "lama:D_DO-35_SOD27_P7.62mm_Horizontal"
+	(footprint "tantricyphons:D_DO-35_SOD27_P7.62mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "3bd58504-aa11-492c-b9ad-b7f3d2c0b382")
 		(at 60.96 39.68)
@@ -7851,7 +7851,7 @@
 			)
 		)
 	)
-	(footprint "lama:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
+	(footprint "tantricyphons:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "3d556b3b-6e51-41d9-8b32-59dcc270b2b5")
 		(at 34.29 53.34 180)
@@ -8042,7 +8042,7 @@
 			)
 		)
 	)
-	(footprint "lama:Jack_PJ398SM"
+	(footprint "tantricyphons:Jack_PJ398SM"
 		(layer "F.Cu")
 		(uuid "3d663844-1f18-46f0-9dae-c7d8057abfc1")
 		(at 39.414 64.816667 90)
@@ -8364,7 +8364,7 @@
 			(uuid "9111d90b-ef36-4d74-a5cf-5509989d1030")
 		)
 		(embedded_fonts no)
-		(model "/Users/dave/Source/crankery/lamarama/hw/3D/WQP-PJ398SM.step"
+		(model "${KIPRJMOD}/../3D/WQP-PJ398SM.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -8375,7 +8375,7 @@
 				(xyz -0 -0 -0)
 			)
 		)
-		(model "/Users/dave/Source/crankery/lamarama/hw/3D/PJ398SM.STEP"
+		(model "${KIPRJMOD}/../3D/PJ398SM.STEP"
 			(hide yes)
 			(offset
 				(xyz 0 0 0)
@@ -8388,7 +8388,7 @@
 			)
 		)
 	)
-	(footprint "lama:C_Disc_D3.0mm_W1.6mm_P2.50mm"
+	(footprint "tantricyphons:C_Disc_D3.0mm_W1.6mm_P2.50mm"
 		(layer "F.Cu")
 		(uuid "3fdc9855-ea77-4fe8-b151-07f45e7af758")
 		(at 79.6505 96.13 -90)
@@ -8559,7 +8559,7 @@
 			)
 		)
 	)
-	(footprint "lama:D_DO-35_SOD27_P7.62mm_Horizontal"
+	(footprint "tantricyphons:D_DO-35_SOD27_P7.62mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "40b6e464-a0f1-4848-b9ae-2fcabd8d15c2")
 		(at 68.58 52.38 180)
@@ -8853,7 +8853,7 @@
 			)
 		)
 	)
-	(footprint "lama:MountingHole_3.2mm_M3_DIN965_Pad"
+	(footprint "tantricyphons:MountingHole_3.2mm_M3_DIN965_Pad"
 		(layer "F.Cu")
 		(uuid "40be696e-c9fb-4b96-949b-ae3304608945")
 		(at 113.25 33.05)
@@ -8976,7 +8976,7 @@
 		)
 		(embedded_fonts no)
 	)
-	(footprint "lama:Jack_P419_GR"
+	(footprint "tantricyphons:Jack_P419_GR"
 		(layer "F.Cu")
 		(uuid "43b00066-4645-4967-a375-4467b0b705c6")
 		(at 101.886 64.816667 -90)
@@ -9298,7 +9298,7 @@
 			(uuid "f387cd2b-c643-405b-b80e-eb7b7128ac12")
 		)
 		(embedded_fonts no)
-		(model "/Users/dave/Source/crankery/lamarama/hw/3D/WQP-PJ398SM.step"
+		(model "${KIPRJMOD}/../3D/WQP-PJ398SM.step"
 			(hide yes)
 			(offset
 				(xyz 0 0 0)
@@ -9310,7 +9310,7 @@
 				(xyz -0 -0 -0)
 			)
 		)
-		(model "/Users/dave/Source/crankery/lamarama/hw/3D/WPQ-P419GR-Part.step"
+		(model "${KIPRJMOD}/../3D/WPQ-P419GR-Part.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -9322,7 +9322,7 @@
 			)
 		)
 	)
-	(footprint "lama:C_Disc_D3.0mm_W1.6mm_P2.50mm"
+	(footprint "tantricyphons:C_Disc_D3.0mm_W1.6mm_P2.50mm"
 		(layer "F.Cu")
 		(uuid "45854c40-fe33-4c62-82a2-d2d029a66cb5")
 		(at 45.72 43.18)
@@ -9493,7 +9493,7 @@
 			)
 		)
 	)
-	(footprint "lama:Jack_PJ398SM"
+	(footprint "tantricyphons:Jack_PJ398SM"
 		(layer "F.Cu")
 		(uuid "4a286f03-783a-4c90-9d0b-676bfad5fb40")
 		(at 39.414 95.033333 90)
@@ -9815,7 +9815,7 @@
 			(uuid "9ea6a4ae-efea-4a7a-99d1-d4ffdcaf7f8a")
 		)
 		(embedded_fonts no)
-		(model "/Users/dave/Source/crankery/lamarama/hw/3D/WQP-PJ398SM.step"
+		(model "${KIPRJMOD}/../3D/WQP-PJ398SM.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -9826,7 +9826,7 @@
 				(xyz -0 -0 -0)
 			)
 		)
-		(model "/Users/dave/Source/crankery/lamarama/hw/3D/PJ398SM.STEP"
+		(model "${KIPRJMOD}/../3D/PJ398SM.STEP"
 			(hide yes)
 			(offset
 				(xyz 0 0 0)
@@ -9839,7 +9839,7 @@
 			)
 		)
 	)
-	(footprint "lama:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
+	(footprint "tantricyphons:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "4f4b9355-87de-4e93-9adb-11d06e350660")
 		(at 110.496 48.26 90)
@@ -10030,7 +10030,7 @@
 			)
 		)
 	)
-	(footprint "lama:Jack_PJ398SM"
+	(footprint "tantricyphons:Jack_PJ398SM"
 		(layer "F.Cu")
 		(uuid "520a1871-3b46-4f05-aa44-8d25588a8bc8")
 		(at 39.414 34.6 90)
@@ -10352,7 +10352,7 @@
 			(uuid "88c327f9-9f7e-4871-b0e7-d49ea45ead28")
 		)
 		(embedded_fonts no)
-		(model "/Users/dave/Source/crankery/lamarama/hw/3D/WQP-PJ398SM.step"
+		(model "${KIPRJMOD}/../3D/WQP-PJ398SM.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -10363,7 +10363,7 @@
 				(xyz -0 -0 -0)
 			)
 		)
-		(model "/Users/dave/Source/crankery/lamarama/hw/3D/PJ398SM.STEP"
+		(model "${KIPRJMOD}/../3D/PJ398SM.STEP"
 			(hide yes)
 			(offset
 				(xyz 0 0 0)
@@ -10376,7 +10376,7 @@
 			)
 		)
 	)
-	(footprint "lama:D_DO-35_SOD27_P7.62mm_Horizontal"
+	(footprint "tantricyphons:D_DO-35_SOD27_P7.62mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "527d3e57-58fa-4c13-a587-b6b5591bcffc")
 		(at 92.966 74.976667 -90)
@@ -10696,7 +10696,7 @@
 			)
 		)
 	)
-	(footprint "lama:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
+	(footprint "tantricyphons:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "57630824-6381-4117-a585-b3777cf03654")
 		(at 54.61 53.34 180)
@@ -10887,7 +10887,7 @@
 			)
 		)
 	)
-	(footprint "lama:C_Disc_D3.0mm_W1.6mm_P2.50mm"
+	(footprint "tantricyphons:C_Disc_D3.0mm_W1.6mm_P2.50mm"
 		(layer "F.Cu")
 		(uuid "590de53b-64ae-4088-a1e8-a597a2e681e4")
 		(at 104.396 72.436667)
@@ -11058,7 +11058,7 @@
 			)
 		)
 	)
-	(footprint "lama:D_DO-35_SOD27_P7.62mm_Horizontal"
+	(footprint "tantricyphons:D_DO-35_SOD27_P7.62mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "5de2cebc-d661-4fe7-bbc0-f648744087d9")
 		(at 68.58 44.76 180)
@@ -11352,7 +11352,7 @@
 			)
 		)
 	)
-	(footprint "lama:Jack_PJ398SM"
+	(footprint "tantricyphons:Jack_PJ398SM"
 		(layer "F.Cu")
 		(uuid "5feba947-a3b3-4b68-becc-ba693818dd72")
 		(at 60.238 125.25 90)
@@ -11674,7 +11674,7 @@
 			(uuid "6daa843e-dbd3-4864-b805-509e388f13b1")
 		)
 		(embedded_fonts no)
-		(model "/Users/dave/Source/crankery/lamarama/hw/3D/WQP-PJ398SM.step"
+		(model "${KIPRJMOD}/../3D/WQP-PJ398SM.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -11685,7 +11685,7 @@
 				(xyz -0 -0 -0)
 			)
 		)
-		(model "/Users/dave/Source/crankery/lamarama/hw/3D/PJ398SM.STEP"
+		(model "${KIPRJMOD}/../3D/PJ398SM.STEP"
 			(hide yes)
 			(offset
 				(xyz 0 0 0)
@@ -11698,7 +11698,7 @@
 			)
 		)
 	)
-	(footprint "lama:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
+	(footprint "tantricyphons:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "6553f122-8cae-41af-8889-8d831ca3d483")
 		(at 34.29 48.26 180)
@@ -11889,7 +11889,7 @@
 			)
 		)
 	)
-	(footprint "lama:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
+	(footprint "tantricyphons:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "6907a925-dac8-465e-a946-7f65ddf83bff")
 		(at 48.334 32.06 -90)
@@ -12080,7 +12080,7 @@
 			)
 		)
 	)
-	(footprint "lama:Potentiometer_Alpha_RD901F-40-00D_Single_Vertical"
+	(footprint "tantricyphons:Potentiometer_Alpha_RD901F-40-00D_Single_Vertical"
 		(layer "F.Cu")
 		(uuid "6965e7d3-757b-42fd-9335-49e13039ac32")
 		(at 60.238 111.75)
@@ -12471,7 +12471,7 @@
 			(uuid "2ee11d57-59c6-4a29-847c-a7e1064a46be")
 		)
 		(embedded_fonts no)
-		(model "/Users/dave/Source/crankery/lamarama/hw/3D/RD901F-40-15R1.step"
+		(model "${KIPRJMOD}/../3D/RD901F-40-15R1.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -12483,7 +12483,7 @@
 			)
 		)
 	)
-	(footprint "lama:DIP-8_W7.62mm"
+	(footprint "tantricyphons:DIP-8_W7.62mm"
 		(layer "F.Cu")
 		(uuid "6d02fa95-3c8a-459f-86b7-cc22137d593b")
 		(at 96.776 74.976667)
@@ -12875,7 +12875,7 @@
 			)
 		)
 	)
-	(footprint "lama:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
+	(footprint "tantricyphons:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "6e7b1c85-fa93-48d9-995d-699528ffd52e")
 		(at 54.61 48.26 180)
@@ -13066,7 +13066,7 @@
 			)
 		)
 	)
-	(footprint "lama:Jack_PJ398SM"
+	(footprint "tantricyphons:Jack_PJ398SM"
 		(layer "F.Cu")
 		(uuid "71dd888e-62a5-45f5-bc01-add975375d80")
 		(at 101.886 34.6 -90)
@@ -13388,7 +13388,7 @@
 			(uuid "90563524-a9b8-4d82-a393-6839b80abfb8")
 		)
 		(embedded_fonts no)
-		(model "/Users/dave/Source/crankery/lamarama/hw/3D/WQP-PJ398SM.step"
+		(model "${KIPRJMOD}/../3D/WQP-PJ398SM.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -13399,7 +13399,7 @@
 				(xyz -0 -0 -0)
 			)
 		)
-		(model "/Users/dave/Source/crankery/lamarama/hw/3D/PJ398SM.STEP"
+		(model "${KIPRJMOD}/../3D/PJ398SM.STEP"
 			(hide yes)
 			(offset
 				(xyz 0 0 0)
@@ -13412,7 +13412,7 @@
 			)
 		)
 	)
-	(footprint "lama:D_DO-35_SOD27_P7.62mm_Horizontal"
+	(footprint "tantricyphons:D_DO-35_SOD27_P7.62mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "7792cc95-a2e5-4b30-885f-9c9e9d413403")
 		(at 35.56 43.18 180)
@@ -13706,7 +13706,7 @@
 			)
 		)
 	)
-	(footprint "lama:C_Disc_D3.0mm_W1.6mm_P2.50mm"
+	(footprint "tantricyphons:C_Disc_D3.0mm_W1.6mm_P2.50mm"
 		(layer "F.Cu")
 		(uuid "77e71820-0c7a-4baa-9395-12740e34e6a6")
 		(at 48.9995 96.13 -90)
@@ -13877,7 +13877,7 @@
 			)
 		)
 	)
-	(footprint "lama:C_Rect_L7.0mm_W2.5mm_P5.00mm"
+	(footprint "tantricyphons:C_Rect_L7.0mm_W2.5mm_P5.00mm"
 		(layer "F.Cu")
 		(uuid "796c643b-cfdc-46f6-9cef-780fd00f1248")
 		(at 103.481 56.963334 90)
@@ -14068,7 +14068,7 @@
 			)
 		)
 	)
-	(footprint "lama:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
+	(footprint "tantricyphons:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "79896e9c-18a4-4e87-ad2c-917b8a3dc304")
 		(at 27.732 97.573333 90)
@@ -14259,7 +14259,7 @@
 			)
 		)
 	)
-	(footprint "lama:Potentiometer_Alpha_RD901F-40-00D_Single_Vertical"
+	(footprint "tantricyphons:Potentiometer_Alpha_RD901F-40-00D_Single_Vertical"
 		(layer "F.Cu")
 		(uuid "7d2d4ae1-f8e8-42c5-bbed-9c6e10d57702")
 		(at 101.886 111.75)
@@ -14650,7 +14650,7 @@
 			(uuid "acf9fd3b-caed-4190-a5d9-ea5c3839e895")
 		)
 		(embedded_fonts no)
-		(model "/Users/dave/Source/crankery/lamarama/hw/3D/RD901F-40-15R1.step"
+		(model "${KIPRJMOD}/../3D/RD901F-40-15R1.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -14662,7 +14662,7 @@
 			)
 		)
 	)
-	(footprint "lama:Jack_PJ398SM"
+	(footprint "tantricyphons:Jack_PJ398SM"
 		(layer "F.Cu")
 		(uuid "7d3d62e2-3fca-4119-832c-4f60e4c80266")
 		(at 81.062 125.25 -90)
@@ -14984,7 +14984,7 @@
 			(uuid "a8f0c59d-3686-4ac1-a4de-2be427f9f597")
 		)
 		(embedded_fonts no)
-		(model "/Users/dave/Source/crankery/lamarama/hw/3D/WQP-PJ398SM.step"
+		(model "${KIPRJMOD}/../3D/WQP-PJ398SM.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -14995,7 +14995,7 @@
 				(xyz -0 -0 -0)
 			)
 		)
-		(model "/Users/dave/Source/crankery/lamarama/hw/3D/PJ398SM.STEP"
+		(model "${KIPRJMOD}/../3D/PJ398SM.STEP"
 			(hide yes)
 			(offset
 				(xyz 0 0 0)
@@ -15008,7 +15008,7 @@
 			)
 		)
 	)
-	(footprint "lama:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
+	(footprint "tantricyphons:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "84e93f6d-b629-499a-8006-ed48754a5767")
 		(at 62.23 49.84)
@@ -15199,7 +15199,7 @@
 			)
 		)
 	)
-	(footprint "lama:Potentiometer_Alpha_RD901F-40-00D_Single_Vertical"
+	(footprint "tantricyphons:Potentiometer_Alpha_RD901F-40-00D_Single_Vertical"
 		(layer "F.Cu")
 		(uuid "869b815e-d288-4f05-8a18-d5e499bde29e")
 		(at 39.414 81.533333)
@@ -15590,7 +15590,7 @@
 			(uuid "722e5073-c46b-484a-aae2-ee5b26ff6f65")
 		)
 		(embedded_fonts no)
-		(model "/Users/dave/Source/crankery/lamarama/hw/3D/RD901F-40-15R1.step"
+		(model "${KIPRJMOD}/../3D/RD901F-40-15R1.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -15602,7 +15602,7 @@
 			)
 		)
 	)
-	(footprint "lama:C_Disc_D3.0mm_W1.6mm_P2.50mm"
+	(footprint "tantricyphons:C_Disc_D3.0mm_W1.6mm_P2.50mm"
 		(layer "F.Cu")
 		(uuid "8e093d55-7141-47f2-a28e-3dd1000607cf")
 		(at 92.3505 98.63 90)
@@ -15773,7 +15773,7 @@
 			)
 		)
 	)
-	(footprint "lama:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
+	(footprint "tantricyphons:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "8e36854d-afa2-4374-b5b0-f270d62bbbdf")
 		(at 71.92 113.02 90)
@@ -15964,7 +15964,7 @@
 			)
 		)
 	)
-	(footprint "lama:SW_PUSH_6mm_H13mm"
+	(footprint "tantricyphons:SW_PUSH_6mm_H13mm"
 		(layer "F.Cu")
 		(uuid "92be8a22-f613-4c17-9705-e11206d9b662")
 		(at 98.636 92.783333)
@@ -16306,7 +16306,7 @@
 				(xyz -0 -0 -0)
 			)
 		)
-		(model "/Users/dave/Source/crankery/lamarama/hw/3D/Unnamed-difference.step"
+		(model "${KIPRJMOD}/../3D/Unnamed-difference.step"
 			(offset
 				(xyz 3.25 -2.25 9)
 			)
@@ -16318,7 +16318,7 @@
 			)
 		)
 	)
-	(footprint "lama:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
+	(footprint "tantricyphons:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "932af9f4-cee4-4177-9c37-8a38b2d2c029")
 		(at 27.732 121.91 90)
@@ -16509,7 +16509,7 @@
 			)
 		)
 	)
-	(footprint "lama:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
+	(footprint "tantricyphons:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "96baa95e-94e1-49d2-add7-f439a056de83")
 		(at 69.38 113.02 90)
@@ -16700,7 +16700,7 @@
 			)
 		)
 	)
-	(footprint "lama:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
+	(footprint "tantricyphons:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "97eb9bac-09c8-4b9a-a032-3ba06bfa519e")
 		(at 113.286 77.516667 180)
@@ -16891,7 +16891,7 @@
 			)
 		)
 	)
-	(footprint "lama:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
+	(footprint "tantricyphons:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "9876d883-5f97-48f9-b699-896f027e3a12")
 		(at 30.272 89.953333 90)
@@ -17082,7 +17082,7 @@
 			)
 		)
 	)
-	(footprint "lama:Potentiometer_Alpha_RD901F-40-00D_Single_Vertical"
+	(footprint "tantricyphons:Potentiometer_Alpha_RD901F-40-00D_Single_Vertical"
 		(layer "F.Cu")
 		(uuid "9a565e02-57b6-413a-a520-82e287d3bdef")
 		(at 39.414 111.75)
@@ -17473,7 +17473,7 @@
 			(uuid "ef7075e4-d245-41e1-bec0-6828ed0c5e8c")
 		)
 		(embedded_fonts no)
-		(model "/Users/dave/Source/crankery/lamarama/hw/3D/RD901F-40-15R1.step"
+		(model "${KIPRJMOD}/../3D/RD901F-40-15R1.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -17485,7 +17485,7 @@
 			)
 		)
 	)
-	(footprint "lama:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
+	(footprint "tantricyphons:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "9ffc420a-0ec8-4424-9985-9b065a907718")
 		(at 62.23 42.22)
@@ -17676,7 +17676,7 @@
 			)
 		)
 	)
-	(footprint "lama:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
+	(footprint "tantricyphons:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "a5c842a9-fb9c-4082-8ffc-8c80bf5867a4")
 		(at 49.53 50.8)
@@ -17867,7 +17867,7 @@
 			)
 		)
 	)
-	(footprint "lama:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
+	(footprint "tantricyphons:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "a63a9e0a-fef4-45e3-9ead-66983b0dcd94")
 		(at 51.096 121.91 90)
@@ -18058,7 +18058,7 @@
 			)
 		)
 	)
-	(footprint "lama:D_DO-35_SOD27_P7.62mm_Horizontal"
+	(footprint "tantricyphons:D_DO-35_SOD27_P7.62mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "aaa534d6-7434-4211-9f77-29802eb37cd2")
 		(at 68.58 37.14 180)
@@ -18352,7 +18352,7 @@
 			)
 		)
 	)
-	(footprint "lama:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
+	(footprint "tantricyphons:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "aaf6983d-0c00-466a-8f06-f78da281a7f8")
 		(at 30.272 92.493333 -90)
@@ -18543,7 +18543,7 @@
 			)
 		)
 	)
-	(footprint "lama:MountingHole_3.2mm_M3_DIN965_Pad"
+	(footprint "tantricyphons:MountingHole_3.2mm_M3_DIN965_Pad"
 		(layer "F.Cu")
 		(uuid "ad60f810-2afc-4f8c-a428-702460e7abc1")
 		(at 28.05 33.05)
@@ -18666,7 +18666,7 @@
 		)
 		(embedded_fonts no)
 	)
-	(footprint "lama:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
+	(footprint "tantricyphons:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "b12760f8-8728-4119-8e56-1fd09a1cbd3b")
 		(at 92.966 62.276667 -90)
@@ -18857,7 +18857,7 @@
 			)
 		)
 	)
-	(footprint "lama:D_DO-35_SOD27_P7.62mm_Horizontal"
+	(footprint "tantricyphons:D_DO-35_SOD27_P7.62mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "b139a416-b56b-43a1-a2b3-c0374b64bca8")
 		(at 60.96 62.54)
@@ -19151,7 +19151,7 @@
 			)
 		)
 	)
-	(footprint "lama:C_Disc_D3.0mm_W1.6mm_P2.50mm"
+	(footprint "tantricyphons:C_Disc_D3.0mm_W1.6mm_P2.50mm"
 		(layer "F.Cu")
 		(uuid "b3555d17-d926-4edb-8018-921495fbbf50")
 		(at 88.91 69.896667 -90)
@@ -19322,7 +19322,7 @@
 			)
 		)
 	)
-	(footprint "lama:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
+	(footprint "tantricyphons:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "b49b7e4c-01bd-4676-9519-b3069e135b0a")
 		(at 113.568 121.91 90)
@@ -19513,7 +19513,7 @@
 			)
 		)
 	)
-	(footprint "lama:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
+	(footprint "tantricyphons:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "b4e47048-636b-40bd-a5d9-20b2acb77b96")
 		(at 62.23 72.7)
@@ -19704,7 +19704,7 @@
 			)
 		)
 	)
-	(footprint "lama:RotaryEncoder_Alps_EC11E-Switch_Vertical_H20mm"
+	(footprint "tantricyphons:RotaryEncoder_Alps_EC11E-Switch_Vertical_H20mm"
 		(layer "F.Cu")
 		(uuid "b5b70a2c-d499-407f-a089-249e4dc39593")
 		(at 70.675 94.783333)
@@ -20181,7 +20181,7 @@
 			(uuid "2dc8736a-286d-4809-98be-267cc9e59b92")
 		)
 		(embedded_fonts no)
-		(model "/Users/dave/Source/crankery/lamarama/hw/3D/ec11.STEP"
+		(model "${KIPRJMOD}/../3D/ec11.STEP"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -20193,7 +20193,7 @@
 			)
 		)
 	)
-	(footprint "lama:Potentiometer_Alpha_RD901F-40-00D_Single_Vertical"
+	(footprint "tantricyphons:Potentiometer_Alpha_RD901F-40-00D_Single_Vertical"
 		(layer "F.Cu")
 		(uuid "b7345adf-40bb-47c1-b1ef-4146056e4b46")
 		(at 81.062 111.75)
@@ -20584,7 +20584,7 @@
 			(uuid "2c341711-7f31-496a-9d37-9ebd76d45112")
 		)
 		(embedded_fonts no)
-		(model "/Users/dave/Source/crankery/lamarama/hw/3D/RD901F-40-15R1.step"
+		(model "${KIPRJMOD}/../3D/RD901F-40-15R1.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -20596,7 +20596,7 @@
 			)
 		)
 	)
-	(footprint "lama:DIP-14_W7.62mm"
+	(footprint "tantricyphons:DIP-14_W7.62mm"
 		(layer "F.Cu")
 		(uuid "bd081dd2-0da8-4b54-9168-30359efe498a")
 		(at 82.1905 88.51)
@@ -21132,7 +21132,7 @@
 			)
 		)
 	)
-	(footprint "lama:C_Disc_D3.0mm_W1.6mm_P2.50mm"
+	(footprint "tantricyphons:C_Disc_D3.0mm_W1.6mm_P2.50mm"
 		(layer "F.Cu")
 		(uuid "be7ada29-352d-4725-bdf2-f767749c647d")
 		(at 61.6995 98.63 90)
@@ -21303,7 +21303,7 @@
 			)
 		)
 	)
-	(footprint "lama:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
+	(footprint "tantricyphons:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "bf640b80-437b-455e-8b99-ebb991ff5694")
 		(at 29.21 50.8)
@@ -21494,7 +21494,7 @@
 			)
 		)
 	)
-	(footprint "lama:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
+	(footprint "tantricyphons:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "c138fee1-893c-4544-86a6-b18e00e60aa3")
 		(at 90.204 113.02 90)
@@ -21685,7 +21685,7 @@
 			)
 		)
 	)
-	(footprint "lama:DIP-8_W7.62mm"
+	(footprint "tantricyphons:DIP-8_W7.62mm"
 		(layer "F.Cu")
 		(uuid "c69aef3a-d50c-406a-83e1-4299c16f5692")
 		(at 38.1 45.72)
@@ -22083,7 +22083,7 @@
 			)
 		)
 	)
-	(footprint "lama:D_DO-35_SOD27_P7.62mm_Horizontal"
+	(footprint "tantricyphons:D_DO-35_SOD27_P7.62mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "c6d11323-a531-48a9-9ccc-00d1f660d319")
 		(at 60.96 32.06)
@@ -22377,7 +22377,7 @@
 			)
 		)
 	)
-	(footprint "lama:MountingHole_3.2mm_M3_DIN965_Pad"
+	(footprint "tantricyphons:MountingHole_3.2mm_M3_DIN965_Pad"
 		(layer "F.Cu")
 		(uuid "c6d2a6e3-d1d0-442d-aa6f-546d9dfe9862")
 		(at 28.05 126.95)
@@ -22500,7 +22500,7 @@
 		)
 		(embedded_fonts no)
 	)
-	(footprint "lama:TestPoint_Pad_1.5x1.5mm"
+	(footprint "tantricyphons:TestPoint_Pad_1.5x1.5mm"
 		(layer "F.Cu")
 		(uuid "c6fa8891-7168-461b-9547-d104ad9c137c")
 		(at 113.25 38.1 90)
@@ -22667,7 +22667,7 @@
 		)
 		(embedded_fonts no)
 	)
-	(footprint "lama:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
+	(footprint "tantricyphons:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "c849ef5d-f4d6-437d-aa6b-a4acf4e3dd04")
 		(at 48.556 121.91 90)
@@ -22858,7 +22858,7 @@
 			)
 		)
 	)
-	(footprint "lama:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
+	(footprint "tantricyphons:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "cbadf80a-9839-4807-a899-a3ff9804cd08")
 		(at 93.121 48.18)
@@ -23049,7 +23049,7 @@
 			)
 		)
 	)
-	(footprint "lama:D_DO-35_SOD27_P7.62mm_Horizontal"
+	(footprint "tantricyphons:D_DO-35_SOD27_P7.62mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "d46765cc-f4e2-4c0b-aece-f1682a341a1f")
 		(at 60.96 54.92)
@@ -23343,7 +23343,7 @@
 			)
 		)
 	)
-	(footprint "lama:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
+	(footprint "tantricyphons:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "daa16ec8-ecc1-4c55-8bf3-bbb5ade1ae4e")
 		(at 111.028 121.91 90)
@@ -23534,7 +23534,7 @@
 			)
 		)
 	)
-	(footprint "lama:Potentiometer_Runtron_RM-065_Vertical"
+	(footprint "tantricyphons:Potentiometer_Runtron_RM-065_Vertical"
 		(layer "F.Cu")
 		(uuid "db6c6206-8d4a-4209-ac54-b71ea1beb7bc")
 		(at 107.011 43.18 -90)
@@ -24051,7 +24051,7 @@
 			(uuid "db207b96-f1ee-42c4-856c-34dbbb0fc4cd")
 		)
 		(embedded_fonts no)
-		(model "/Users/dave/Source/crankery/lamarama/hw/3D/RM065.stp"
+		(model "${KIPRJMOD}/../3D/RM065.stp"
 			(offset
 				(xyz 2.5 -2.5 3.7)
 			)
@@ -24063,7 +24063,7 @@
 			)
 		)
 	)
-	(footprint "lama:fp"
+	(footprint "tantricyphons:fp"
 		(layer "F.Cu")
 		(uuid "db986eef-3736-4c5f-b9be-346dffec1deb")
 		(at 25 30 180)
@@ -24163,7 +24163,7 @@
 			(uuid "c759bfbf-379b-4c0e-9056-009548a7e9bb")
 		)
 		(embedded_fonts no)
-		(model "/Users/dave/Source/crankery/lamarama/hw/3D/control.step"
+		(model "${KIPRJMOD}/../3D/control.step"
 			(hide yes)
 			(opacity 0.5200)
 			(offset
@@ -24177,7 +24177,7 @@
 			)
 		)
 	)
-	(footprint "lama:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
+	(footprint "tantricyphons:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "df311497-4d15-4f2d-a069-bd2942aeb523")
 		(at 50.874 37.14 90)
@@ -24368,7 +24368,7 @@
 			)
 		)
 	)
-	(footprint "lama:D_DO-35_SOD27_P7.62mm_Horizontal"
+	(footprint "tantricyphons:D_DO-35_SOD27_P7.62mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "e14bd6f3-f814-47a9-88b9-7ab655767c0c")
 		(at 68.58 75.24 180)
@@ -24662,7 +24662,7 @@
 			)
 		)
 	)
-	(footprint "lama:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
+	(footprint "tantricyphons:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "e7299eb3-4211-4dc7-8028-3e863431b0ef")
 		(at 93.121 43.18)
@@ -24853,7 +24853,7 @@
 			)
 		)
 	)
-	(footprint "lama:D_DO-35_SOD27_P7.62mm_Horizontal"
+	(footprint "tantricyphons:D_DO-35_SOD27_P7.62mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "e8fd618a-1642-43cc-ad77-820f8f944224")
 		(at 68.58 60 180)
@@ -25147,7 +25147,7 @@
 			)
 		)
 	)
-	(footprint "lama:DIP-14_W7.62mm"
+	(footprint "tantricyphons:DIP-14_W7.62mm"
 		(layer "F.Cu")
 		(uuid "eaf2735c-2a7b-4ab4-8328-38d95b2f7bfb")
 		(at 51.5395 88.51)
@@ -25683,7 +25683,7 @@
 			)
 		)
 	)
-	(footprint "lama:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
+	(footprint "tantricyphons:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "f78cebac-12bb-4ddf-9cd8-72a8ecef05a5")
 		(at 108.206 80.056667)
@@ -25874,7 +25874,7 @@
 			)
 		)
 	)
-	(footprint "lama:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
+	(footprint "tantricyphons:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "fb38a849-4731-4977-8d54-12c358af0d46")
 		(at 35.352 101.646667 180)
@@ -26065,7 +26065,7 @@
 			)
 		)
 	)
-	(footprint "lama:Jack_PJ398SM"
+	(footprint "tantricyphons:Jack_PJ398SM"
 		(layer "F.Cu")
 		(uuid "fd898624-083f-4ece-aa58-8b40b91cb03f")
 		(at 39.414 125.25 90)
@@ -26387,7 +26387,7 @@
 			(uuid "ed74d1e3-a5b5-4eba-b46f-82ed0097cbd3")
 		)
 		(embedded_fonts no)
-		(model "/Users/dave/Source/crankery/lamarama/hw/3D/WQP-PJ398SM.step"
+		(model "${KIPRJMOD}/../3D/WQP-PJ398SM.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -26398,7 +26398,7 @@
 				(xyz -0 -0 -0)
 			)
 		)
-		(model "/Users/dave/Source/crankery/lamarama/hw/3D/PJ398SM.STEP"
+		(model "${KIPRJMOD}/../3D/PJ398SM.STEP"
 			(hide yes)
 			(offset
 				(xyz 0 0 0)
@@ -26411,7 +26411,7 @@
 			)
 		)
 	)
-	(footprint "lama:PinHeader_2x04_P2.54mm_Vertical"
+	(footprint "tantricyphons:PinHeader_2x04_P2.54mm_Vertical"
 		(layer "B.Cu")
 		(uuid "022a6905-d63b-4212-9fed-37bdf67537df")
 		(at 86.37 41.87 180)
@@ -26732,7 +26732,7 @@
 			)
 		)
 	)
-	(footprint "lama:PinHeader_1x02_P2.54mm_Vertical"
+	(footprint "tantricyphons:PinHeader_1x02_P2.54mm_Vertical"
 		(layer "B.Cu")
 		(uuid "42dfebdd-285e-4e78-9e89-4f9dfb5a20ed")
 		(at 86.37 34.6 90)
@@ -26967,7 +26967,7 @@
 			)
 		)
 	)
-	(footprint "lama:PinHeader_2x07_P2.54mm_Vertical"
+	(footprint "tantricyphons:PinHeader_2x07_P2.54mm_Vertical"
 		(layer "B.Cu")
 		(uuid "6aa21534-c9ca-4fca-84d5-77942823a8ef")
 		(at 86.37 57.196667 180)
@@ -27354,7 +27354,7 @@
 			)
 		)
 	)
-	(footprint "lama:PinHeader_1x06_P2.54mm_Vertical"
+	(footprint "tantricyphons:PinHeader_1x06_P2.54mm_Vertical"
 		(layer "B.Cu")
 		(uuid "e3813a2a-0bd5-4b1f-b2b5-7a64247d51f7")
 		(at 64.55 81.533333 -90)

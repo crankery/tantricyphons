@@ -1,4 +1,4 @@
 (sym_lib_table
 	(version 7)
-	(lib (name "lama") (type "KiCad") (uri "/Users/dave/Source/crankery/lamarama/hw/lama.kicad_sym") (options "") (descr ""))
+	(lib (name "tantricyphons") (type "KiCad") (uri "${KIPRJMOD}/../tantricyphons.kicad_sym") (options "") (descr ""))
 )
