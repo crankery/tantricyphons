@@ -19,6 +19,8 @@ typedef struct
 
 /* Core 1 only; audio core republishes these for core 0. */
 DacDebugStats dac_get_debug_stats(void);
+/* Core 1 only: clear diagnostics, preserving live DMA/PIO/buffer ownership. */
+void dac_reset_debug_stats(void);
 
 /* All calls run on core 1. Acquire blocks until a buffer is free; submit
  * transfers ownership to DMA. Never write a buffer after submitting it. */

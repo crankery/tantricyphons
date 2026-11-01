@@ -20,6 +20,7 @@
 #include "audio_debug.h"
 #include "settings.h"
 #include "calibration.h"
+#include "usb_console.h"
 
 static void adc_updated(InputAdc adc, unsigned channel, uint16_t value)
 {
@@ -61,6 +62,7 @@ int main()
     // start up the sound core
     sound_core_start();
     display_init();
+    usb_console_init();
 
     // UI loop
     while (true)
@@ -73,6 +75,7 @@ int main()
         display_poll();
         settings_poll(display_ready_for_flash());
         audio_debug_poll();
+        usb_console_poll();
         tight_loop_contents();
     }
 }

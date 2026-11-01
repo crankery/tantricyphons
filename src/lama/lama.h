@@ -12,6 +12,8 @@
 #define I2C_SCL 9
 
 #define SAMPLE_BUFFER_SIZE 256
+#ifndef SAMPLE_RATE
 #define SAMPLE_RATE 44100
+#endif
 
 #endif // _LAMA_DOT_H

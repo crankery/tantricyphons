@@ -63,6 +63,17 @@ typedef struct
     float aspiration_amp;
     bool grain_dirty;
 
+    /* Exact-input caches: avoid repeating expensive math and rebuilding an
+     * identical grain. Cached values are invalidated by keys/dirty state. */
+    bool period_cache_valid, vibrato_cache_valid, grain_cache_valid;
+    int period_cache_index;
+    float period_cache_sample_rate, period_cache_value;
+    float vibrato_cache_rate, vibrato_cache_scale;
+    float grain_cache_vowel, grain_cache_voice, grain_cache_aspiration;
+    float grain_cache_sample_rate;
+    uint32_t grain_cache_length;
+    uint32_t grain_build_count, grain_trigger_count, period_compute_count;
+
     /* ADSR envelope */
     enum
     {

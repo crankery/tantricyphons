@@ -229,6 +229,12 @@ int main(void)
     assert(calibration_set(CAL_MCP3208, (AdcCalibration){2520, 3740}));
     routing_update(5, 2500, 100001); // unchanged ADC must refresh after calibration
     assert(messages == before_calibration + 1 && last.value < 0.6f);
+    menu_poll();
+    uint32_t revision_before_cli = menu_get_view().revision;
+    routing_set_target(6, TARGET_VOICE); // same path as console assign
+    menu_poll();
+    assert(menu_get_view().revision > revision_before_cli);
+    assert(menu_get_view().assignments[6] == TARGET_VOICE);
     // Bounds-check every setup/calibration/save page, including empty rows.
     for (unsigned page = MENU_MAIN; page <= MENU_RESET_DONE; ++page)
     {

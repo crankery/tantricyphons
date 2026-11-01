@@ -12,6 +12,14 @@ static float master_level = 1.0f;
 static critical_section_t state_lock;
 static SoundState display_state = {.vowel = 0.5f};
 static AudioDebugStats published_debug;
+static bool debug_reset_requested;
+
+void sound_core_reset_debug_stats(void)
+{
+    critical_section_enter_blocking(&state_lock);
+    debug_reset_requested = true;
+    critical_section_exit(&state_lock);
+}
 
 AudioDebugStats sound_core_get_debug_stats(void)
 {
@@ -86,6 +94,10 @@ void render_audio(float *buffer, uint32_t n)
 
 void soundCoreInit()
 {
+    gpio_init(PICO_DEFAULT_LED_PIN);
+    gpio_put(PICO_DEFAULT_LED_PIN, false);
+    gpio_set_dir(PICO_DEFAULT_LED_PIN, GPIO_OUT);
+
     monk_voice_init(&voice, SAMPLE_RATE);
     gain_coeff = gain_smoothing_coeff(SAMPLE_RATE);
     dac_init();
@@ -100,21 +112,58 @@ void soundCore()
 
     soundCoreInit();
     AudioDebugStats debug = {0};
+    unsigned led_buffers = 0;
+    uint32_t reset_generation = 0;
 
     while (true)
     {
         // Acquire ownership of the next free playback buffer.
         uint16_t *dac_buffer = get_free_dac_buffer();
 
+        critical_section_enter_blocking(&state_lock);
+        bool reset_debug = debug_reset_requested;
+        debug_reset_requested = false;
+        critical_section_exit(&state_lock);
+        if (reset_debug)
+        {
+            dac_reset_debug_stats();
+            debug = (AudioDebugStats){.reset_generation = ++reset_generation};
+        }
+
         uint64_t fill_started = time_us_64();
+        uint32_t grains_before = voice.grain_trigger_count;
+        uint32_t builds_before = voice.grain_build_count;
         process_messages(&voice, &master_level);
+        uint64_t render_started = time_us_64();
         render_audio(buffer, SAMPLE_BUFFER_SIZE);
+        uint64_t pack_started = time_us_64();
         prepare_dac_buffer(dac_buffer);
 
         submit_dac_buffer(dac_buffer);
 
         // Measure useful work, excluding the wait for a free buffer.
-        uint32_t elapsed = (uint32_t)(time_us_64() - fill_started);
+        uint64_t fill_finished = time_us_64();
+        uint32_t elapsed = (uint32_t)(fill_finished - fill_started);
+        debug.last_messages_us = (uint32_t)(render_started - fill_started);
+        debug.last_render_us = (uint32_t)(pack_started - render_started);
+        debug.last_pack_us = (uint32_t)(fill_finished - pack_started);
+        debug.last_grains = voice.grain_trigger_count - grains_before;
+        debug.last_grain_builds = voice.grain_build_count - builds_before;
+        if (debug.last_messages_us > debug.max_messages_us)
+        {
+            debug.max_messages_us = debug.last_messages_us;
+        }
+
+        if (debug.last_render_us > debug.max_render_us)
+        {
+            debug.max_render_us = debug.last_render_us;
+        }
+
+        if (debug.last_pack_us > debug.max_pack_us)
+        {
+            debug.max_pack_us = debug.last_pack_us;
+        }
+
         debug.dac = dac_get_debug_stats();
         ++debug.blocks;
         debug.last_fill_us = elapsed;
@@ -122,6 +171,11 @@ void soundCore()
         if (elapsed > debug.max_fill_us)
         {
             debug.max_fill_us = elapsed;
+            debug.worst_messages_us = debug.last_messages_us;
+            debug.worst_render_us = debug.last_render_us;
+            debug.worst_pack_us = debug.last_pack_us;
+            debug.worst_grains = debug.last_grains;
+            debug.worst_grain_builds = debug.last_grain_builds;
         }
 
         if (elapsed > debug.dac.block_budget_us)
@@ -135,5 +189,12 @@ void soundCore()
         display_state = state;
         published_debug = debug;
         critical_section_exit(&state_lock);
+
+        // Slow audio-loop heartbeat, without delaying playback.
+        if (++led_buffers == 100)
+        {
+            gpio_xor_mask(1u << PICO_DEFAULT_LED_PIN);
+            led_buffers = 0;
+        }
     }
 }

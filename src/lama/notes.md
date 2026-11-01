@@ -342,8 +342,8 @@ cc -std=c11 -Wall -Wextra -Werror -fsanitize=address,undefined -I.     voice_con
 on UART0 TX, GP0 (physical pin 1), at 115200 baud, 8N1. Connect target GP0 to
 the probe UART RX signal and connect grounds. Leave probe TX disconnected:
 GP1 is LCD CS and must not be connected as target UART RX. SWD uses its
-separate SWCLK/SWDIO/GND connection. The target's own USB stdio is disabled.
-The debug probe still presents its UART bridge to the host over USB.
+separate SWCLK/SWDIO/GND connection. The target now also has a separate USB serial console (enabled by default);
+the probe still presents its UART bridge to the host over USB.
 
 `audio_debug_poll()` formats a short line once per second and feeds at most
 eight bytes per UI-loop pass when the UART FIFO has space. UART writes never
@@ -550,3 +550,191 @@ cc -std=c11 -Wall -Wextra -Werror -fsanitize=address,undefined -I. \
 The simulation checks startup with all four pin states, both directions,
 contact bounce, ignored invalid transitions, FIFO-full operation, and counter
 wrap. Physical direction and steps per detent still need board verification.
+
+
+## USB serial console
+
+`LAMA_USB_CONSOLE` defaults ON, enabling SDK USB CDC stdio and the standard
+USB reset interfaces. Flash this firmware once using BOOTSEL, then open the
+new USB serial port in a serial terminal (115200 is conventional; USB CDC
+transport is not paced by that UART baud setting). A debug probe is not
+required. Disable local echo because the console echoes typed input itself.
+The greeting is `lama USB console. Type help.` and the prompt is `> `.
+
+```text
+help
+info
+status
+adc
+note 69
+set vowel 0.7
+set vibrato 0.2
+off
+routes
+assign 0 vibrato
+cal
+save
+```
+
+- `info`: board, clock, nominal sample rate, buffer size, pin/peripheral summary,
+  unsaved settings and save-state (`idle`, `pending`, `saved`, `error`).
+- `status`: voice note/vowel state, audio A/B completions, late buffers,
+  underrun observations, and fill-time diagnostics.
+- `adc`: one snapshot of all three Pico and eight MCP3208 channels, showing
+  raw values, calibrated normalized values, scan number and age.
+- `note NOTE [VELOCITY]`: enqueue a MIDI-style note (0..127), default velocity
+  100. Velocity zero is Note Off. The existing voice ignores velocity amplitude.
+- `off [NOTE]`: release one note or all MIDI notes. CV gate/pitch remains
+  available and can resume playing; this does not forcibly mute a high CV gate.
+- `set PARAM VALUE`: enqueue a MIDI-priority parameter message. Parameters
+  `vowel`, `voice`, `vibrato`, `vib_rate`, `glide`, `aspiration`, `level`, and
+  `sustain` take 0..1; `attack`/`decay` take 0..2 seconds and `release` 0..4.
+  The normal 2-second MIDI ownership lease and ADC handback apply. Use `note`
+  for pitch testing rather than a direct pitch command fighting the CV path.
+- `routes`: show all eight external input destinations.
+- `assign INPUT TARGET`: change a RAM assignment. Inputs 0..3 are pots 1..4;
+  4..7 are CV 1..4. Targets are `off`, `pitch`, or any `set` parameter.
+  The LCD menu refreshes after these programmatic changes.
+- `cal`: show both ADC calibration records without changing them.
+- `save`: request the existing safe flash save, including calibration and
+  assignments; audio may pause. Check `info` for completion. There is no
+  automatic save after an assignment edit.
+
+The console runs only on core 0. Each poll handles at most 16 input bytes and
+48 output bytes. A 4 KiB output ring and USB TX-space checks retain replies
+under normal host backpressure; input processing pauses before output runs
+out of room. SDK USB stdout/mutex timeouts are zero to avoid waiting for an
+unresponsive/disconnected terminal. Only this thread writes USB; periodic
+probe diagnostics remain on the independent UART0 path. A disconnect resets
+partially typed input and pending replies, without automatically releasing
+notes. A line is limited to 95 characters; overflow is discarded through the
+next newline. CR, LF, CRLF, backspace/delete and Ctrl-C line cancel are handled.
+Commands are lower-case and whitespace-separated. There is no terminal history.
+
+Numeric input rejects non-finite values, malformed tokens and out-of-range
+values. Event enqueue failures are reported. No command accesses arbitrary
+memory, touches the voice from core 0, or runs terminal I/O in an audio IRQ.
+The parser is hardware-independent and tested with malformed/bounded random
+input under ASan/UBSan. Live USB enumeration, terminal interaction and combined
+audio timing still need checking on the physical Pico.
+
+The SDK's USB reset support should also allow picotool/Run Project to reboot
+this running firmware into BOOTSEL for later uploads. Source-level breakpoints
+still require the SWD probe. Configure `-DLAMA_USB_CONSOLE=OFF` to return to a
+USB-disabled build; the console entry points then become no-ops.
+
+```sh
+cc -std=c11 -Wall -Wextra -Werror -fsanitize=address,undefined -I. \
+    console_command.c tests/test_console_command.c -lm -o /tmp/lama-test-console
+/tmp/lama-test-console
+```
+
+### Connectivity observations
+
+`connections` distinguishes firmware activity from verified physical presence.
+USB host serial connection is known active while the command runs. DAC DMA
+completions and PIO stalls describe the transmitter, not whether an MCP4821
+is installed: its write-only connection provides no acknowledgement. The LCD
+also has TX-only wiring, so its presence is unverified.
+
+MCP3208 scans similarly have no device ID or ACK. The command reports raw
+near-rail channel counts (0..4 or 4091..4095), an all-zero hint, scan number
+and age. A missing/unpowered chip, wiring issue, or legitimately grounded
+inputs can produce indistinguishable readings. An absent converter may still
+produce apparently varying readings on a floating pin; that is not proof of
+connectivity. Internal Pico ADC availability does not establish connections
+to its analog inputs.
+
+MIDI UART received-byte/error counters and last-traffic age show activity,
+without claiming a source is connected or its bytes are valid MIDI. GPIO
+levels and the encoder edge count can help test switches/knob movement; idle
+and unconnected contacts with pull-ups look alike. These are non-invasive
+observations, not automatic cable or chip detection. Use a scope or a planned
+loopback measurement to confirm actual DAC output.
+
+## Rendering headroom and sample-rate builds
+
+A held note still triggers grains periodically. The renderer previously
+recomputed two power functions every active sample and rebuilt the entire
+waveform at every grain trigger, including when its inputs were identical.
+`voice.c` now caches pitch-to-period results by quantized pitch and sample rate,
+vibrato rate scaling by its input parameter, and grain waveforms by vowel,
+voice character, aspiration, sample rate, length and dirty state. Grain overlap
+still happens at every original trigger. Its ring traversal now uses a wrapping
+index rather than a modulo operation per sample.
+
+This does not approximate or change the cached calculations. The host
+before/after differential test rendered 356,580 samples over seven sample
+rates, stable notes, parameter changes, envelopes, reset and sample-rate
+changes; outputs were byte-for-byte identical. Separate tests check cache reuse
+and invalidation. Target performance and target waveform equivalence still
+need confirmation on the board.
+
+`status` now reports message handling, render, and pack/submit times separately,
+plus grains triggered and waveforms built in the most recent and worst-fill
+blocks. Independent per-stage maxima need not come from the same block;
+`worst fill phases` and its grain/build counts do. In a steady voice, most
+triggered grains should require no waveform rebuild. Floating unconnected
+vowel ADC inputs can still change vowel, causing legitimate rebuilds.
+
+The sample rate is configurable with `LAMA_SAMPLE_RATE` (integer 8000..48000,
+default 44100; suggested build choices 22050, 32000, 44100). For 256 samples,
+nominal deadlines are 11.61 ms at 22050, 8 ms at 32000 and 5.80 ms at 44100.
+Clock-divider rounding slightly changes the actual rate, reported as the block
+budget in diagnostics. No system-clock overclocking is used.
+
+The current trial artifacts are:
+
+- `build/lama.uf2` and `build/lama.elf`: optimized 44.1 kHz firmware.
+- `build/22050/lama.uf2` and `build/22050/lama.elf`: optimized 22.05 kHz firmware.
+
+The nested build is independent and ignored with the rest of `build/`. Match
+the ELF to the firmware when using the source debugger. Use `info` to confirm
+the nominal rate after flashing. Both retain the USB console and saved-settings
+format. The heartbeat slows proportionally at the lower sample rate.
+
+To change the primary build rate:
+
+```sh
+cmake -S . -B build -DLAMA_SAMPLE_RATE=22050
+cmake --build build
+```
+
+Cache checks:
+
+```sh
+cc -std=c11 -Wall -Wextra -Werror -fsanitize=address,undefined -I. \\
+    voice.c tests/test_voice_cache.c -lm -o /tmp/lama-test-voice-cache
+/tmp/lama-test-voice-cache
+```
+
+`tests/render_voice_samples.c` is the waveform fixture used to compare the
+original and optimized implementations. Compile it separately against each
+voice.c/header version, write sample files, and compare them with `cmp`.
+
+### Resetting an audio measurement window
+
+Use `resetstats` after starting a test note, then `status` after letting it run.
+Core 0 requests the reset; core 1 services it at the next acquired audio buffer.
+The request is protected by the existing state lock, and DAC counters are
+cleared with core-1 IRQs briefly disabled. Playback, the voice/envelope, caches,
+MIDI/CV ownership, DMA/PIO configuration and buffer ownership are preserved.
+
+The command resets rendered-block totals, fill average/max, slow-block count,
+per-stage timings/worst-block context and DAC start/completion/late/underrun
+counters. The block budget stays intact. PIO's sticky historical stall flag
+is cleared. In-flight buffers continue, so A/B completions in a fresh window
+can include a transfer that started before the reset. MIDI traffic counters
+and ADC scan sequence are independent and are not reset.
+
+`status` reports `stats window=N`, incremented when core 1 performs a reset.
+A command immediately following the request can still see the previous window
+until the next audio buffer completes (normally about 5.8 ms at 44.1 kHz).
+Repeated requests before that boundary coalesce. The configured primary
+sample rate remains 44.1 kHz.
+
+```text
+note 69
+resetstats
+status
+```

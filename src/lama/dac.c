@@ -50,6 +50,16 @@ DacDebugStats dac_get_debug_stats(void)
     return stats;
 }
 
+void dac_reset_debug_stats(void)
+{
+    assert(get_core_num() == 1);
+    uint32_t saved = save_and_disable_interrupts();
+    uint32_t budget = debug_stats.block_budget_us;
+    debug_stats = (DacDebugStats){.block_budget_us = budget};
+    dac_pio->fdebug = 1u << (PIO_FDEBUG_TXSTALL_LSB + sm);
+    restore_interrupts(saved);
+}
+
 /* Called with interrupts disabled, or from the DMA handler on core 1.
  * A single DMA channel avoids chaining back into a buffer being rendered.
  * The joined PIO FIFO covers the interrupt handoff between blocks. */

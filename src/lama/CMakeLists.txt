@@ -49,6 +49,8 @@ add_custom_command(
 add_executable(lama
     dac.c
     audio_debug.c
+    usb_console.c
+    console_command.c
     cv_input.c
     cv_pitch.c
     vowel_controls.c
@@ -80,6 +82,25 @@ if(LAMA_AUDIO_DEBUG)
     )
 endif()
 
+option(LAMA_USB_CONSOLE "Enable the interactive USB serial console" ON)
+if(LAMA_USB_CONSOLE)
+    target_compile_definitions(lama PRIVATE
+        LAMA_USB_CONSOLE=1
+        PICO_STDIO_USB_STDOUT_TIMEOUT_US=0
+        PICO_STDIO_DEADLOCK_TIMEOUT_MS=0
+    )
+endif()
+
+set(LAMA_SAMPLE_RATE "44100" CACHE STRING "Audio sample rate in Hz")
+set_property(CACHE LAMA_SAMPLE_RATE PROPERTY STRINGS 22050 32000 44100)
+if(NOT LAMA_SAMPLE_RATE MATCHES "^[1-9][0-9]*$")
+    message(FATAL_ERROR "LAMA_SAMPLE_RATE must be an integer")
+endif()
+if(LAMA_SAMPLE_RATE LESS 8000 OR LAMA_SAMPLE_RATE GREATER 48000)
+    message(FATAL_ERROR "LAMA_SAMPLE_RATE must be between 8000 and 48000 Hz")
+endif()
+target_compile_definitions(lama PRIVATE SAMPLE_RATE=${LAMA_SAMPLE_RATE})
+
 target_compile_options(lama PRIVATE
     -mfpu=fpv5-sp-d16
     -mfloat-abi=softfp
@@ -95,7 +116,11 @@ pico_generate_pio_header(lama ${CMAKE_CURRENT_LIST_DIR}/mcp3208.pio)
 
 # Modify the below lines to enable/disable output over UART/USB
 pico_enable_stdio_uart(lama 0)
-pico_enable_stdio_usb(lama 0)
+if(LAMA_USB_CONSOLE)
+    pico_enable_stdio_usb(lama 1)
+else()
+    pico_enable_stdio_usb(lama 0)
+endif()
 
 # Add the standard library to the build
 target_link_libraries(lama

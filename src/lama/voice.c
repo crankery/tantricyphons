@@ -240,16 +240,26 @@ static float lookup_formant(const MonkVoice *v, int formant, float vowel)
  * to a frequency. The quantization is
  * audible and intentional — it gives the voice its characteristic stepped
  * pitch quality. */
-static float grain_period(const MonkVoice *v, float midi_note)
+static float grain_period(MonkVoice *v, float midi_note)
 {
     /* Every pitch input is clamped at its setter; this guards the sum of
      * pitch, bend and vibrato against a non-finite float-to-int cast. */
     float internal = clampf(midi_note, 0.0f, 150.0f) - 12.0f;
     int table_idx = (int)(internal * 32.0f);
-    float freq = powf(2.0f, (float)table_idx / 384.0f) * PITCH_TABLE_BASE;
-    float period = v->sample_rate / freq;
-    /* A period below one sample would retrigger the grain every sample. */
-    return period >= 1.0f ? period : 1.0f;
+    if (!v->period_cache_valid || table_idx != v->period_cache_index ||
+        v->sample_rate != v->period_cache_sample_rate)
+    {
+        float freq = powf(2.0f, (float)table_idx / 384.0f) * PITCH_TABLE_BASE;
+        float period = v->sample_rate / freq;
+        /* A period below one sample would retrigger the grain every sample. */
+        v->period_cache_value = period >= 1.0f ? period : 1.0f;
+        v->period_cache_index = table_idx;
+        v->period_cache_sample_rate = v->sample_rate;
+        v->period_cache_valid = true;
+        ++v->period_compute_count;
+    }
+
+    return v->period_cache_value;
 }
 
 /* Two portamento modes matching the original Delay Lama:
@@ -332,7 +342,14 @@ static float compute_vibrato(MonkVoice *v)
 {
     /* Rate parameter scales the LFO speed: 0.5 = default,
      * 0 = ~1/4 speed, 1 = ~4x speed. Exponential mapping for musical feel. */
-    float rate_scale = powf(4.0f, v->vibrato_rate * 2.0f - 1.0f);
+    if (!v->vibrato_cache_valid || v->vibrato_rate != v->vibrato_cache_rate)
+    {
+        v->vibrato_cache_scale = powf(4.0f, v->vibrato_rate * 2.0f - 1.0f);
+        v->vibrato_cache_rate = v->vibrato_rate;
+        v->vibrato_cache_valid = true;
+    }
+
+    float rate_scale = v->vibrato_cache_scale;
     float rate = (v->vibrato_depth * 0.2f + 1.0f) * v->random_jitter * rate_scale;
     v->vibrato_phase += rate / v->sr_per_vib_tbl;
 
@@ -364,6 +381,15 @@ static float compute_vibrato(MonkVoice *v)
  * formant frequencies (0.75 = baritone, 1.0 = normal, 1.25 = soprano). */
 static void compute_grain(MonkVoice *v)
 {
+    if (v->grain_cache_valid && !v->grain_dirty && v->current_vowel == v->grain_cache_vowel &&
+        v->current_voice == v->grain_cache_voice &&
+        v->aspiration_amp == v->grain_cache_aspiration &&
+        v->sample_rate == v->grain_cache_sample_rate && v->grain_len == v->grain_cache_length)
+    {
+        return;
+    }
+
+    ++v->grain_build_count;
     uint32_t n = v->grain_len;
     float formant_scale = v->current_voice * 0.5f + 0.75f;
     float sr = v->sample_rate;
@@ -397,6 +423,12 @@ static void compute_grain(MonkVoice *v)
         v->grain[i] = sample * v->cos_window[i];
     }
 
+    v->grain_cache_vowel = v->current_vowel;
+    v->grain_cache_voice = v->current_voice;
+    v->grain_cache_aspiration = v->aspiration_amp;
+    v->grain_cache_sample_rate = v->sample_rate;
+    v->grain_cache_length = v->grain_len;
+    v->grain_cache_valid = true;
     v->grain_dirty = false;
 }
 
@@ -407,12 +439,15 @@ static void compute_grain(MonkVoice *v)
 static void overlap_add(MonkVoice *v)
 {
     v->overlap_write_pos = (v->overlap_write_pos + v->overlap_offset) % MONK_OVERLAP_BUF_SIZE;
-    uint32_t start = v->overlap_write_pos;
+    uint32_t pos = v->overlap_write_pos;
 
     for (uint32_t i = 0; i < v->grain_len; i++)
     {
-        uint32_t pos = (start + i) % MONK_OVERLAP_BUF_SIZE;
         v->overlap_buf[pos] += v->grain[i];
+        if (++pos == MONK_OVERLAP_BUF_SIZE)
+        {
+            pos = 0;
+        }
     }
 }
 
@@ -685,6 +720,7 @@ void monk_voice_process(MonkVoice *v, float *output, uint32_t n)
 
             if (v->overlap_offset >= period || v->grain_dirty)
             {
+                ++v->grain_trigger_count;
                 compute_grain(v);
                 overlap_add(v);
                 v->overlap_offset = 0;

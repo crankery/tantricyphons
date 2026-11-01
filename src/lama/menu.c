@@ -228,6 +228,22 @@ void menu_back(void)
 
 void menu_poll(void)
 {
+    bool assignments_changed = false;
+    for (unsigned i = 0; i < ROUTING_INPUTS; ++i)
+    {
+        RoutingTarget target = routing_get_target(i);
+        if (menu.assignments[i] != target)
+        {
+            menu.assignments[i] = target;
+            assignments_changed = true;
+        }
+    }
+
+    if (assignments_changed)
+    {
+        ++menu.revision;
+    }
+
     if (menu.page == MENU_CAL_WAIT_1V || menu.page == MENU_CAL_WAIT_4V)
     {
         float raw;

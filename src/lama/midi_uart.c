@@ -3,6 +3,13 @@
 #include "pico/stdlib.h"
 #include "hardware/uart.h"
 
+static MidiDebugStats debug_stats;
+
+MidiDebugStats midi_get_debug_stats(void)
+{
+    return debug_stats;
+}
+
 void midi_init(void)
 {
     midi_reset_parser();
@@ -22,12 +29,15 @@ void midi_poll(void)
         uint32_t data = uart_get_hw(uart1)->dr;
         if (data & 0xf00)
         {
+            ++debug_stats.receive_errors;
             uart_get_hw(uart1)->rsr = 0;
             midi_reset_parser();
             add_midi_message(MONK_ALL_NOTES_OFF, 0);
         }
         else
         {
+            ++debug_stats.received_bytes;
+            debug_stats.last_rx_us = time_us_64();
             midi_receive_byte((uint8_t)data);
         }
     }

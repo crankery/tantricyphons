@@ -109,3 +109,8 @@ void ui_controls_poll(void)
         }
     }
 }
+
+uint32_t ui_controls_encoder_count(void)
+{
+    return encoder_steps.previous;
+}
