@@ -1,5 +1,5 @@
-#include "menu.h"
-#include "messenger.h"
+#include "display/menu.h"
+#include "messaging/messenger.h"
 #include <assert.h>
 #include <math.h>
 #include <stdio.h>

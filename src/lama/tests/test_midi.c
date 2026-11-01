@@ -1,8 +1,8 @@
 #include <assert.h>
 #include <math.h>
 #include <stdio.h>
-#include "midi.h"
-#include "messenger.h"
+#include "midi/midi.h"
+#include "messaging/messenger.h"
 
 static MonkEvent events[32];
 static unsigned count;

@@ -3,6 +3,7 @@
         {
             "name": "Pico",
             "includePath": [
+                "${workspaceFolder}/include",
                 "${workspaceFolder}/**",
                 "${userHome}/.pico-sdk/sdk/2.3.1/**"
             ],

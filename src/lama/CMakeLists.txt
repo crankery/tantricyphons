@@ -47,32 +47,51 @@ add_custom_command(
 # Add executable. Default name is the project name, version 0.1
 
 add_executable(lama
-    dac.c
-    audio_debug.c
-    usb_console.c
-    console_command.c
-    cv_input.c
-    cv_pitch.c
-    vowel_controls.c
-    calibration.c
-    settings.c
-    settings_flash.c
-    settings_format.c
-    voice_control.c
-    input.c
-    display.c
-    monk.c
-    menu.c
-    routing.c
-    ui_controls.c
-    encoder_steps.c
+    # App
+    src/app/lama.c
+
+    # Audio
+    src/audio/soundCore.c
+    src/audio/voice.c
+    src/audio/voice_control.c
+
+    # Controls
+    src/controls/input.c
+    src/controls/cv_input.c
+    src/controls/cv_pitch.c
+    src/controls/vowel_controls.c
+    src/controls/routing.c
+    src/controls/ui_controls.c
+    src/controls/encoder_steps.c
+    src/controls/calibration.c
+
+    # Midi
+    src/midi/midi.c
+    src/midi/midi_uart.c
+
+    # Display
+    src/display/display.c
+    src/display/monk.c
+    src/display/menu.c
+
+    # Settings
+    src/settings/settings.c
+    src/settings/settings_format.c
+    src/settings/settings_flash.c
+
+    # Diagnostics
+    src/diagnostics/audio_debug.c
+    src/diagnostics/usb_console.c
+    src/diagnostics/console_command.c
+
+    # Hardware
+    src/hardware/dac.c
+
+    # Messaging
+    src/messaging/messenger.c
+
+    # Generated packed artwork
     ${CMAKE_CURRENT_BINARY_DIR}/monk_assets.c
-    lama.c
-    midi.c
-    midi_uart.c
-    messenger.c
-    soundCore.c
-    voice.c
 )
 
 option(LAMA_AUDIO_DEBUG "Send audio diagnostics over UART0 TX GP0 once/sec" ON)
@@ -110,9 +129,9 @@ pico_set_program_name(lama "lama")
 pico_set_program_version(lama "0.1")
 
 # Generate PIO header
-pico_generate_pio_header(lama ${CMAKE_CURRENT_LIST_DIR}/dac.pio)
-pico_generate_pio_header(lama ${CMAKE_CURRENT_LIST_DIR}/encoder.pio)
-pico_generate_pio_header(lama ${CMAKE_CURRENT_LIST_DIR}/mcp3208.pio)
+pico_generate_pio_header(lama ${CMAKE_CURRENT_LIST_DIR}/pio/dac.pio)
+pico_generate_pio_header(lama ${CMAKE_CURRENT_LIST_DIR}/pio/encoder.pio)
+pico_generate_pio_header(lama ${CMAKE_CURRENT_LIST_DIR}/pio/mcp3208.pio)
 
 # Modify the below lines to enable/disable output over UART/USB
 pico_enable_stdio_uart(lama 0)
@@ -130,7 +149,7 @@ target_link_libraries(lama
 
 # Add the standard include files to the build
 target_include_directories(lama PRIVATE
-        ${CMAKE_CURRENT_LIST_DIR}
+        ${CMAKE_CURRENT_LIST_DIR}/include
 )
 
 # Add any user requested libraries

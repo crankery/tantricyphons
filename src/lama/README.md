@@ -6,7 +6,7 @@ It covers the main/control boards, analog and digital signal paths, GPIO map, tw
 
 ## Working in this directory
 
-This is the current Pico 2 C firmware project. Run builds from here:
+This is the current Pico 2 C firmware project. C sources are grouped by responsibility under `src/`, matching headers under `include/`; PIO programs live in `pio/`. Run builds from here:
 
 ```sh
 export PICO_SDK_PATH=/path/to/pico-sdk

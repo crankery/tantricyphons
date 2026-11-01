@@ -1,6 +1,6 @@
-#include "settings.h"
-#include "settings_format.h"
-#include "messenger.h"
+#include "settings/settings.h"
+#include "settings/settings_format.h"
+#include "messaging/messenger.h"
 #include <assert.h>
 #include <math.h>
 #include <stdio.h>

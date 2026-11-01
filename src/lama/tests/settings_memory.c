@@ -1,5 +1,5 @@
 /* Host flash model: interrupted programs leave the alternate record invalid. */
-#include "settings_storage.h"
+#include "settings/settings_storage.h"
 #include <assert.h>
 #include <string.h>
 uint8_t test_flash[2][SETTINGS_PAGE_SIZE];

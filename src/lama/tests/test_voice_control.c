@@ -1,5 +1,5 @@
-#include "voice_control.h"
-#include "cv_input.h"
+#include "audio/voice_control.h"
+#include "controls/cv_input.h"
 #include <assert.h>
 #include <math.h>
 #include <stdio.h>

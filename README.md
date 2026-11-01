@@ -374,33 +374,56 @@ The optimization's host comparison produced **356,580 byte-identical samples** a
 
 ## Source-code map
 
-Paths below are relative to the firmware directory, `src/lama`.
+```text
+src/lama/
+├── src/                 # C implementations
+│   ├── app/             # Startup and main loop
+│   ├── audio/           # Voice, rendering and ownership
+│   ├── controls/        # ADC, CV, routing, calibration and physical controls
+│   ├── midi/            # MIDI parser and UART transport
+│   ├── display/         # LCD, monk and menu
+│   ├── settings/        # Persistence policy, format and flash adapter
+│   ├── diagnostics/     # USB console and probe logs
+│   ├── hardware/        # DAC driver
+│   └── messaging/       # Inter-core event queue
+├── include/             # Matching subsystem directories and header contracts
+├── pio/                 # DAC, ADC and encoder state-machine programs
+├── assets/              # Packed artwork and notices
+├── tests/               # Host tests and PIO simulations
+└── tools/               # Asset generation, size guard and formatting
+```
+
+Includes name their subsystem, for example `#include "audio/voice.h"` and
+`#include "hardware/dac.h"`. CMake lists implementation files explicitly;
+only `include/` is needed on the project's header search path.
+
+Paths below are relative to the firmware directory, `src/lama`. C implementations are grouped under `src/`, matching headers under `include/`, and PIO programs under `pio/`. Generated PIO headers remain in the build directory.
 
 | Files | Responsibility |
 | --- | --- |
-| [`lama.c`](src/lama/lama.c), [`lama.h`](src/lama/lama.h) | Startup, main-loop order, ADC callback integration, block/rate defaults |
-| [`soundCore.c`](src/lama/soundCore.c), [`soundCore.h`](src/lama/soundCore.h) | Audio core, floating-point scratch buffer, gain smoothing, DAC packing, heartbeat and timing snapshots/reset requests |
-| [`voice.c`](src/lama/voice.c), [`voice.h`](src/lama/voice.h) | MonkSynth-derived FOF DSP, tables, envelope, pitch utilities and exact-input caches |
-| [`voice_control.c`](src/lama/voice_control.c), [`voice_control.h`](src/lama/voice_control.h) | Audio-side note stack, MIDI/CV priority, cached panel values and controller handback |
-| [`messenger.c`](src/lama/messenger.c), [`messenger.h`](src/lama/messenger.h) | Bounded multicore event queue and source tagging |
-| [`dac.c`](src/lama/dac.c), [`dac.h`](src/lama/dac.h), [`dac.pio`](src/lama/dac.pio) | Buffer ownership, DMA completion/restart, DAC wire timing and stall counters |
-| [`input.c`](src/lama/input.c), [`input.h`](src/lama/input.h), [`mcp3208.pio`](src/lama/mcp3208.pio) | Nonblocking eleven-channel scans, snapshots, calibration application and raw update callback |
-| [`cv_input.c`](src/lama/cv_input.c), [`cv_input.h`](src/lama/cv_input.h), [`cv_pitch.c`](src/lama/cv_pitch.c) | Dedicated pitch/vowel ADC dispatch, gate polling/status heartbeat and volts-to-note conversion |
-| [`vowel_controls.c`](src/lama/vowel_controls.c), [`vowel_controls.h`](src/lama/vowel_controls.h) | Dedicated pot/CV combination, thresholds and update rate limit |
-| [`routing.c`](src/lama/routing.c), [`routing.h`](src/lama/routing.h) | Eight menu assignments, ranges and generic input-change suppression |
-| [`calibration.c`](src/lama/calibration.c), [`calibration.h`](src/lama/calibration.h) | Per-converter voltage fit, normalized conversion and reference-sample capture |
-| [`midi.c`](src/lama/midi.c), [`midi.h`](src/lama/midi.h), [`midi_uart.c`](src/lama/midi_uart.c) | Byte-stream parser, supported message mapping, UART1 polling/error recovery and traffic counters |
-| [`display.c`](src/lama/display.c), [`display.h`](src/lama/display.h) | ST7789 startup state machine, display-buffer ownership, LCD windows and SPI DMA |
-| [`monk.c`](src/lama/monk.c), [`monk.h`](src/lama/monk.h) | Frame choice, idle animation and incremental 4bpp-to-RGB565 expansion |
-| [`menu.c`](src/lama/menu.c), [`menu.h`](src/lama/menu.h), [`menu_font.h`](src/lama/menu_font.h) | Setup navigation/edit/cancel states, calibration/save flows and row rendering |
-| [`ui_controls.c`](src/lama/ui_controls.c), [`ui_controls.h`](src/lama/ui_controls.h), [`encoder.pio`](src/lama/encoder.pio) | Encoder PIO configuration, bounded snapshot polling and OK/Back debounce |
-| [`encoder_steps.c`](src/lama/encoder_steps.c), [`encoder_steps.h`](src/lama/encoder_steps.h) | Modular edge-count differences, partial steps and detent conversion |
-| [`settings.c`](src/lama/settings.c), [`settings.h`](src/lama/settings.h) | Load/save policy, dirty tracking, defaults and deferred save requests |
-| [`settings_format.c`](src/lama/settings_format.c), [`settings_format.h`](src/lama/settings_format.h) | Versioned record encoding, validation, CRC and migration |
-| [`settings_flash.c`](src/lama/settings_flash.c), [`settings_storage.h`](src/lama/settings_storage.h) | Physical flash adapter, reserved sectors, RAM program buffer and safe multicore execution |
-| [`usb_console.c`](src/lama/usb_console.c), [`usb_console.h`](src/lama/usb_console.h) | USB terminal transport, line editing, replies and command execution on core 0 |
-| [`console_command.c`](src/lama/console_command.c), [`console_command.h`](src/lama/console_command.h) | Hardware-independent parsing, command vocabulary and input validation |
-| [`audio_debug.c`](src/lama/audio_debug.c), [`audio_debug.h`](src/lama/audio_debug.h) | Bounded UART0 diagnostic output |
+| [`lama.c`](src/lama/src/app/lama.c), [`lama.h`](src/lama/include/app/lama.h) | Startup, main-loop order, ADC callback integration, block/rate defaults |
+| [`soundCore.c`](src/lama/src/audio/soundCore.c), [`soundCore.h`](src/lama/include/audio/soundCore.h) | Audio core, floating-point scratch buffer, gain smoothing, DAC packing, heartbeat and timing snapshots/reset requests |
+| [`voice.c`](src/lama/src/audio/voice.c), [`voice.h`](src/lama/include/audio/voice.h) | MonkSynth-derived FOF DSP, tables, envelope, pitch utilities and exact-input caches |
+| [`voice_control.c`](src/lama/src/audio/voice_control.c), [`voice_control.h`](src/lama/include/audio/voice_control.h) | Audio-side note stack, MIDI/CV priority, cached panel values and controller handback |
+| [`messenger.c`](src/lama/src/messaging/messenger.c), [`messenger.h`](src/lama/include/messaging/messenger.h) | Bounded multicore event queue and source tagging |
+| [`dac.c`](src/lama/src/hardware/dac.c), [`dac.h`](src/lama/include/hardware/dac.h), [`dac.pio`](src/lama/pio/dac.pio) | Buffer ownership, DMA completion/restart, DAC wire timing and stall counters |
+| [`input.c`](src/lama/src/controls/input.c), [`input.h`](src/lama/include/controls/input.h), [`mcp3208.pio`](src/lama/pio/mcp3208.pio) | Nonblocking eleven-channel scans, snapshots, calibration application and raw update callback |
+| [`cv_input.c`](src/lama/src/controls/cv_input.c), [`cv_input.h`](src/lama/include/controls/cv_input.h), [`cv_pitch.c`](src/lama/src/controls/cv_pitch.c) | Dedicated pitch/vowel ADC dispatch, gate polling/status heartbeat and volts-to-note conversion |
+| [`vowel_controls.c`](src/lama/src/controls/vowel_controls.c), [`vowel_controls.h`](src/lama/include/controls/vowel_controls.h) | Dedicated pot/CV combination, thresholds and update rate limit |
+| [`routing.c`](src/lama/src/controls/routing.c), [`routing.h`](src/lama/include/controls/routing.h) | Eight menu assignments, ranges and generic input-change suppression |
+| [`calibration.c`](src/lama/src/controls/calibration.c), [`calibration.h`](src/lama/include/controls/calibration.h) | Per-converter voltage fit, normalized conversion and reference-sample capture |
+| [`midi.c`](src/lama/src/midi/midi.c), [`midi.h`](src/lama/include/midi/midi.h), [`midi_uart.c`](src/lama/src/midi/midi_uart.c) | Byte-stream parser, supported message mapping, UART1 polling/error recovery and traffic counters |
+| [`display.c`](src/lama/src/display/display.c), [`display.h`](src/lama/include/display/display.h) | ST7789 startup state machine, display-buffer ownership, LCD windows and SPI DMA |
+| [`monk.c`](src/lama/src/display/monk.c), [`monk.h`](src/lama/include/display/monk.h) | Frame choice, idle animation and incremental 4bpp-to-RGB565 expansion |
+| [`menu.c`](src/lama/src/display/menu.c), [`menu.h`](src/lama/include/display/menu.h), [`menu_font.h`](src/lama/include/display/menu_font.h) | Setup navigation/edit/cancel states, calibration/save flows and row rendering |
+| [`ui_controls.c`](src/lama/src/controls/ui_controls.c), [`ui_controls.h`](src/lama/include/controls/ui_controls.h), [`encoder.pio`](src/lama/pio/encoder.pio) | Encoder PIO configuration, bounded snapshot polling and OK/Back debounce |
+| [`encoder_steps.c`](src/lama/src/controls/encoder_steps.c), [`encoder_steps.h`](src/lama/include/controls/encoder_steps.h) | Modular edge-count differences, partial steps and detent conversion |
+| [`settings.c`](src/lama/src/settings/settings.c), [`settings.h`](src/lama/include/settings/settings.h) | Load/save policy, dirty tracking, defaults and deferred save requests |
+| [`settings_format.c`](src/lama/src/settings/settings_format.c), [`settings_format.h`](src/lama/include/settings/settings_format.h) | Versioned record encoding, validation, CRC and migration |
+| [`settings_flash.c`](src/lama/src/settings/settings_flash.c), [`settings_storage.h`](src/lama/include/settings/settings_storage.h) | Physical flash adapter, reserved sectors, RAM program buffer and safe multicore execution |
+| [`usb_console.c`](src/lama/src/diagnostics/usb_console.c), [`usb_console.h`](src/lama/include/diagnostics/usb_console.h) | USB terminal transport, line editing, replies and command execution on core 0 |
+| [`console_command.c`](src/lama/src/diagnostics/console_command.c), [`console_command.h`](src/lama/include/diagnostics/console_command.h) | Hardware-independent parsing, command vocabulary and input validation |
+| [`audio_debug.c`](src/lama/src/diagnostics/audio_debug.c), [`audio_debug.h`](src/lama/include/diagnostics/audio_debug.h) | Bounded UART0 diagnostic output |
 | [`assets/`](src/lama/assets) | Packed monk frames, palette, format notes and font license |
 | [`tools/embed_monk.py`](src/lama/tools/embed_monk.py) | Build-time packed asset embedding into generated C |
 | [`tools/check_flash_size.py`](src/lama/tools/check_flash_size.py) | Reject an image overlapping settings sectors |
@@ -416,17 +439,17 @@ Paths below are relative to the firmware directory, `src/lama`.
 Host tests exercise behavior without connected converters or a probe. For example, from `src/lama` with a host C compiler:
 
 ```sh
-cc -std=c11 -Wall -Wextra -Werror -fsanitize=address,undefined -I. \
-    console_command.c tests/test_console_command.c -lm -o /tmp/lama-test-console
+cc -std=c11 -Wall -Wextra -Werror -fsanitize=address,undefined -Iinclude \
+    src/diagnostics/console_command.c tests/test_console_command.c -lm -o /tmp/lama-test-console
 /tmp/lama-test-console
 
-cc -std=c11 -Wall -Wextra -Werror -fsanitize=address,undefined -I. \
-    calibration.c settings_format.c settings.c routing.c voice.c \
+cc -std=c11 -Wall -Wextra -Werror -fsanitize=address,undefined -Iinclude \
+    src/controls/calibration.c src/settings/settings_format.c src/settings/settings.c src/controls/routing.c src/audio/voice.c \
     tests/settings_memory.c tests/test_settings.c -lm -o /tmp/lama-test-settings
 /tmp/lama-test-settings
 
-cc -std=c11 -Wall -Wextra -Werror -fsanitize=address,undefined -I. \
-    menu.c routing.c calibration.c settings_format.c settings.c voice.c \
+cc -std=c11 -Wall -Wextra -Werror -fsanitize=address,undefined -Iinclude \
+    src/display/menu.c src/controls/routing.c src/controls/calibration.c src/settings/settings_format.c src/settings/settings.c src/audio/voice.c \
     tests/settings_memory.c tests/test_menu.c -lm -o /tmp/lama-test-menu
 /tmp/lama-test-menu
 

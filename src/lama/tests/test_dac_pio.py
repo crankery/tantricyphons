@@ -5,7 +5,7 @@ Run: python3 tests/test_dac_pio.py
 from pathlib import Path
 import re
 
-source = Path(__file__).resolve().parents[1] / 'dac.pio'
+source = Path(__file__).resolve().parents[1] / 'pio' / 'dac.pio'
 program, labels = [], {}
 for raw in source.read_text().splitlines():
     line = raw.split(';')[0].strip()

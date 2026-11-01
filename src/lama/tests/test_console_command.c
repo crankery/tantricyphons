@@ -1,4 +1,4 @@
-#include "console_command.h"
+#include "diagnostics/console_command.h"
 #include <assert.h>
 #include <math.h>
 #include <stdio.h>

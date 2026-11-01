@@ -3,7 +3,7 @@ from pathlib import Path
 import re
 
 program, labels = [], {}
-for raw in (Path(__file__).resolve().parents[1] / 'mcp3208.pio').read_text().splitlines():
+for raw in (Path(__file__).resolve().parents[1] / 'pio' / 'mcp3208.pio').read_text().splitlines():
     line = raw.split(';')[0].strip()
     if not line or line.startswith('.'):
         continue

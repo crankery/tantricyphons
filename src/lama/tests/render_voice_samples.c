@@ -1,6 +1,6 @@
 /* Differential waveform fixture: compile against old/new voice.c and compare
  * output files. Covers stable notes, modulation, envelopes and rate changes. */
-#include "voice.h"
+#include "audio/voice.h"
 #include <stdio.h>
 
 int main(int argc, char **argv)

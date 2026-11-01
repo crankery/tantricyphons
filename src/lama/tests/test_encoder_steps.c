@@ -1,4 +1,4 @@
-#include "encoder_steps.h"
+#include "controls/encoder_steps.h"
 #include <assert.h>
 #include <stdio.h>
 

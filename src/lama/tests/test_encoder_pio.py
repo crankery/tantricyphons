@@ -3,7 +3,7 @@ from pathlib import Path
 
 program, labels = [], {}
 wrap = 0
-for raw in (Path(__file__).resolve().parents[1] / 'encoder.pio').read_text().splitlines():
+for raw in (Path(__file__).resolve().parents[1] / 'pio' / 'encoder.pio').read_text().splitlines():
     line = raw.split(';')[0].strip().lower()
     if line == '.wrap_target':
         wrap = len(program)

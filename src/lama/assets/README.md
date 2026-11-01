@@ -8,4 +8,4 @@ These are the existing monk frames copied from the MicroPython prototype
 
 `tools/embed_monk.py` validates sizes and embeds the packed bytes as constant
 arrays in generated `build/monk_assets.c`. No expanded frames are stored in
-flash. `monk.c` expands one source row at a time into two 240-pixel rows in RAM.
+flash. `src/display/monk.c` expands one source row at a time into two 240-pixel rows in RAM.

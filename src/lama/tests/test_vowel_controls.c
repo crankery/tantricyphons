@@ -1,6 +1,6 @@
-#include "vowel_controls.h"
-#include "calibration.h"
-#include "voice_control.h"
+#include "controls/vowel_controls.h"
+#include "controls/calibration.h"
+#include "audio/voice_control.h"
 #include <assert.h>
 #include <math.h>
 #include <stdio.h>

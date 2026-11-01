@@ -76,7 +76,7 @@ MIDI source tags give controller updates temporary ownership over ADC updates.
 Host parser check (no Pico hardware required):
 
 ```sh
-cc -std=c11 -Wall -Wextra -Werror -I. midi.c tests/test_midi.c -o /tmp/lama-test-midi
+cc -std=c11 -Wall -Wextra -Werror -Iinclude src/midi/midi.c tests/test_midi.c -o /tmp/lama-test-midi
 /tmp/lama-test-midi
 ```
 
@@ -216,8 +216,8 @@ combined audio timing still require hardware verification.
 Host animation/decoder checks (including all frames and output bounds):
 
 ```sh
-cc -std=c11 -Wall -Wextra -Werror -fsanitize=address,undefined -I. \
-    monk.c build/monk_assets.c tests/test_monk.c -o /tmp/lama-test-monk
+cc -std=c11 -Wall -Wextra -Werror -fsanitize=address,undefined -Iinclude \
+    src/display/monk.c build/monk_assets.c tests/test_monk.c -o /tmp/lama-test-monk
 /tmp/lama-test-monk
 ```
 
@@ -276,7 +276,7 @@ Host checks for edit/accept/cancel, page navigation, noise/rate limits,
 queue retry, parameter scaling, and bounds-checked rendering:
 
 ```sh
-cc -std=c11 -Wall -Wextra -Werror -fsanitize=address,undefined -I.     menu.c routing.c calibration.c settings_format.c settings.c voice.c \
+cc -std=c11 -Wall -Wextra -Werror -fsanitize=address,undefined -Iinclude     src/display/menu.c src/controls/routing.c src/controls/calibration.c src/settings/settings_format.c src/settings/settings.c src/audio/voice.c \
     tests/settings_memory.c tests/test_menu.c -lm -o /tmp/lama-test-menu
 /tmp/lama-test-menu
 ```
@@ -331,7 +331,7 @@ Disconnecting MIDI while a note is held cannot synthesize a missing Note Off.
 Host ownership/scaling checks:
 
 ```sh
-cc -std=c11 -Wall -Wextra -Werror -fsanitize=address,undefined -I.     voice_control.c cv_pitch.c calibration.c voice.c tests/test_voice_control.c -lm     -o /tmp/lama-test-voice-control
+cc -std=c11 -Wall -Wextra -Werror -fsanitize=address,undefined -Iinclude     src/audio/voice_control.c src/controls/cv_pitch.c src/controls/calibration.c src/audio/voice.c tests/test_voice_control.c -lm     -o /tmp/lama-test-voice-control
 /tmp/lama-test-voice-control
 ```
 
@@ -465,8 +465,8 @@ host tests simulate records and partial programming, not physical flash.
 Additional host tests:
 
 ```sh
-cc -std=c11 -Wall -Wextra -Werror -fsanitize=address,undefined -I. \
-    calibration.c settings_format.c settings.c routing.c voice.c \
+cc -std=c11 -Wall -Wextra -Werror -fsanitize=address,undefined -Iinclude \
+    src/controls/calibration.c src/settings/settings_format.c src/settings/settings.c src/controls/routing.c src/audio/voice.c \
     tests/settings_memory.c tests/test_settings.c -lm -o /tmp/lama-test-settings
 /tmp/lama-test-settings
 ```
@@ -507,8 +507,8 @@ Checks cover pot endpoints/center, CV addition and clamping, calibration,
 startup validity, noise/rate limits, queue retry, and MIDI handback:
 
 ```sh
-cc -std=c11 -Wall -Wextra -Werror -fsanitize=address,undefined -I. \
-    vowel_controls.c calibration.c voice_control.c voice.c \
+cc -std=c11 -Wall -Wextra -Werror -fsanitize=address,undefined -Iinclude \
+    src/controls/vowel_controls.c src/controls/calibration.c src/audio/voice_control.c src/audio/voice.c \
     tests/test_vowel_controls.c -lm -o /tmp/lama-test-vowel
 /tmp/lama-test-vowel
 ```
@@ -542,8 +542,8 @@ https://github.com/raspberrypi/pico-examples/tree/master/pio/quadrature_encoder
 
 ```sh
 python3 tests/test_encoder_pio.py
-cc -std=c11 -Wall -Wextra -Werror -fsanitize=address,undefined -I. \
-    encoder_steps.c tests/test_encoder_steps.c -o /tmp/lama-test-encoder
+cc -std=c11 -Wall -Wextra -Werror -fsanitize=address,undefined -Iinclude \
+    src/controls/encoder_steps.c tests/test_encoder_steps.c -o /tmp/lama-test-encoder
 /tmp/lama-test-encoder
 ```
 
@@ -624,8 +624,8 @@ still require the SWD probe. Configure `-DLAMA_USB_CONSOLE=OFF` to return to a
 USB-disabled build; the console entry points then become no-ops.
 
 ```sh
-cc -std=c11 -Wall -Wextra -Werror -fsanitize=address,undefined -I. \
-    console_command.c tests/test_console_command.c -lm -o /tmp/lama-test-console
+cc -std=c11 -Wall -Wextra -Werror -fsanitize=address,undefined -Iinclude \
+    src/diagnostics/console_command.c tests/test_console_command.c -lm -o /tmp/lama-test-console
 /tmp/lama-test-console
 ```
 
@@ -703,8 +703,8 @@ cmake --build build
 Cache checks:
 
 ```sh
-cc -std=c11 -Wall -Wextra -Werror -fsanitize=address,undefined -I. \\
-    voice.c tests/test_voice_cache.c -lm -o /tmp/lama-test-voice-cache
+cc -std=c11 -Wall -Wextra -Werror -fsanitize=address,undefined -Iinclude \\
+    src/audio/voice.c tests/test_voice_cache.c -lm -o /tmp/lama-test-voice-cache
 /tmp/lama-test-voice-cache
 ```
 
